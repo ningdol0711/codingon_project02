@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
   // 메뉴 버튼을 클릭하면 메뉴 아이템이 나타나거나 숨겨지도록 합니다.
-  document.querySelector('.menu-btn').addEventListener('click', function() {
+  document.querySelector('.menu-icon-box').addEventListener('click', function() {
     document.querySelector('.menu-items').classList.toggle('show');
     document.querySelector('.menu-icon').classList.toggle('bi-menu-button-fill');
     document.querySelector('.menu-icon').classList.toggle('bi-menu-button');

@@ -1,3 +1,31 @@
+/* Main page background video start */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Main page background video end */
+
+/* Menu component start */
 i {
   font-size: 170%;
 }
@@ -12,18 +40,16 @@ a {
   right: 0;
   margin: 0.5%;
   padding: 0.5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .menu-items {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
 }
 
-.show {
-  display: flex;
+.menu-items.show {
+  max-height: 200px;
 }
 
 .menu-box {
@@ -41,3 +67,4 @@ a {
 .menu-btn li {
   margin-top: 5%;
 }
+/* Menu component end */
