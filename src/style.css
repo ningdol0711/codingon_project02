@@ -1,0 +1,43 @@
+i {
+  font-size: 170%;
+}
+
+a {
+  color: black;
+}
+
+.menu-btn {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 0.5%;
+  padding: 0.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-items {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
+
+.menu-box {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-btn *{
+  padding: 0;
+}
+
+.menu-btn li {
+  margin-top: 5%;
+}
