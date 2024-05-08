@@ -1,0 +1,121 @@
+@font-face {
+  font-family: Formula1;
+  src: url(/src/fonts/Formula1-Regular-1.woff);
+}
+
+body {
+  font-family: Formula1;
+}
+
+/* Main page background video start */
+#main-video-container {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  background-color: black;
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* Main page background video end */
+
+/* Menu component start */
+i {
+  font-size: 170%;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.menu-btn {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 0.5%;
+  padding: 0.5%;
+}
+
+.menu-items {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.menu-items.show {
+  max-height: 200px;
+}
+
+.menu-box {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-btn *{
+  padding: 0;
+}
+
+.menu-btn li {
+  margin-top: 5%;
+}
+/* Menu component end */
+
+/* Team banner start */
+.team-banner {
+  width: 22%;
+  height: auto;
+  position: relative;
+  left: 13.5%;
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  overflow: hidden;
+  transition: background-color 0.7s;
+}
+
+.team-name {
+  font-size: large;
+  position: relative;
+  transition: transform 0.7s;
+  transform: rotate(-90deg) scale(2) translateX(-50%);
+  opacity: 1;
+}
+
+.team-img {
+  width: 95%;
+  height: 95%;
+  padding-bottom: 2%;
+  transform: translateX(-110%);
+  transition: transform 0.7s;
+}
+
+.team-banner:hover .team-img {
+  transform: translateX(0);
+}
+
+.team-banner:hover .team-name {
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+}
+
+.team-banner:hover {
+  background-color: rgb(227, 1, 24);
+}
+/* Team banner end */

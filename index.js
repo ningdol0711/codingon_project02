@@ -7,7 +7,7 @@ app.set('views', './views');
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(express.static(__dirname + '/static'));
+app.use('/style', express.static('./static/style'));
 
 app.get('/', (req, res) => {
   res.render('index');
