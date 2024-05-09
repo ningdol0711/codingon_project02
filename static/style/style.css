@@ -113,6 +113,7 @@ a {
 .team-banner:hover .team-name {
   transform: rotate(0deg) scale(1);
   opacity: 1;
+  color: rgb(253, 217, 0);
 }
 
 .team-banner:hover {
@@ -121,5 +122,34 @@ a {
 /* Team banner end */
 
 /* Circuit banner start */
-  
+.circuit-banner {
+  width: 35%;
+  height: auto;
+  background-color: black;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  left: 10%;
+}
+
+.circuit-name {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-weight: bold;
+}
+
+.circuit-name div {
+  display: flex;
+  flex-direction: column;
+}
+
+.circuit-img {
+  width: 80%;
+  height: auto;
+  border: 1px white solid;
+}
 /* Circuit banner end */
