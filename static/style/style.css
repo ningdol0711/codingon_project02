@@ -59,7 +59,7 @@ a {
   padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-banner: space-between;
   align-items: center;
 }
 
@@ -84,7 +84,7 @@ a {
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-banner: space-around;
   align-items: center;
   background-color: white;
   overflow: hidden;
@@ -124,34 +124,72 @@ a {
 
 /* Circuit banner start */
 .circuit-banner {
-  width: 35%;
-  height: auto;
-  background-color: black;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-around;
-  align-items: center;
-  position: absolute;
-  left: 10%;
+  width: 300px;
+  padding: 20px;
+  perspective: 1000px;
 }
 
-.circuit-name {
+.banner-card {
+  padding-top: 50px;
+  /* border-radius: 10px; */
+  border: 3px solid rgb(255, 255, 255);
+  transform-style: preserve-3d;
+  background: linear-gradient(135deg,#0000 18.75%,#f3f3f3 0 31.25%,#0000 0),
+      repeating-linear-gradient(45deg,#f3f3f3 -6.25% 6.25%,#ffffff 0 18.75%);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 0;
+  background-color: #f0f0f0;
+  width: 100%;
+  box-shadow: rgba(142, 142, 142, 0.3) 0px 30px 30px -10px;
+  transition: all 0.5s ease-in-out;
+}
+
+.banner-card:hover {
+  background-position: -100px 100px, -100px 100px;
+  transform: rotate3d(0.5, 1, 0, 30deg);
+}
+
+.banner-box {
+  transition: all 0.5s ease-in-out;
+  padding: 60px 25px 25px 25px;
+  transform-style: preserve-3d;
+}
+
+.banner-box .banner-card-title {
+  display: inline-block;
   color: white;
-  display: flex;
-  flex-direction: column;
+  font-size: 25px;
+  font-weight: 900;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 50px);
+}
+
+.banner-box .banner-card-title:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+
+.banner-box .banner-card-banner {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #f2f2f2;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 30px);
+}
+
+.banner-box .banner-card-banner:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+
+.model-3d {
+  width: 100%; 
   height: 100%;
-  font-weight: bold;
+  background-color: #f00;
+  transition: all 0.5s ease-in-out;
 }
 
-.circuit-name div {
-  display: flex;
-  flex-direction: column;
-}
-
-.circuit-img {
-  width: 80%;
-  height: auto;
-  border: 1px white solid;
+.banner-card:hover .model-3d {
+  transform: translate3d(0px, 0px, 30px);
 }
 /* Circuit banner end */
 

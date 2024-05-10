@@ -16,6 +16,7 @@
     "express": "^4.19.2",
     "mysql2": "^3.9.7",
     "nodemon": "^3.1.0",
-    "three": "^0.164.1"
+    "three": "^0.164.1",
+    "three-stl-loader": "^1.0.6"
   }
 }

@@ -8,6 +8,7 @@ app.set('views', './views');
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use('/style', express.static('./static/style'));
+app.use('/src', express.static('./src'));
 
 app.get('/', (req, res) => {
   res.render('index');
