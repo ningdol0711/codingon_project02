@@ -509,7 +509,7 @@ svg {
 .back-content img{
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .info-card:hover .info-card-content {
@@ -544,7 +544,7 @@ svg {
 .front-img {
   position: relative;
   display: inline-block;
-  height: 80%;
+  height: 100%;
 }
 
 .front-img img{
@@ -586,6 +586,31 @@ svg {
   color: #ffffff;
   margin-top: 5px;
   font-size: 8px;
+}
+
+.driver-front-content {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.driver {
+  display: inline-block;
+  width: 50%;
+}
+
+.driver img {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.driver:hover img {
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+.driver small {
+  position: absolute;
+  z-index: 3;
 }
 
 /* Info-card-end */
