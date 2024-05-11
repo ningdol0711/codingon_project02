@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Menu start
-  // document
-  //   .querySelector(".menu-icon-box")
-  //   .addEventListener("click", function () {
-  //     document.querySelector(".menu-items").classList.toggle("show");
-  //     document
-  //       .querySelector(".menu-icon")
-  //       .classList.toggle("bi-menu-button-fill");
-  //     document.querySelector(".menu-icon").classList.toggle("bi-menu-button");
-  //   });
+  document
+    .querySelector(".menu-icon-box")
+    .addEventListener("click", function () {
+      document.querySelector(".menu-items").classList.toggle("show");
+      document
+        .querySelector(".menu-icon")
+        .classList.toggle("bi-menu-button-fill");
+      document.querySelector(".menu-icon").classList.toggle("bi-menu-button");
+    });
 
   document.addEventListener("click", function (event) {
     const menuItems = document.querySelector(".menu-items");
