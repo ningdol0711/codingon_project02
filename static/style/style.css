@@ -777,11 +777,11 @@ svg {
 
 /* Schedule select roadio btn  end */
 
-/* Country select card start */
+/* Country, circuit select card start */
 section.card {
   position: relative;
-  width: auto;
-  height: 90%;
+  width: 30%;
+  height: auto;
   background-color: #f2f2f2;
   border-radius: 10px;
   display: flex;
@@ -790,6 +790,7 @@ section.card {
   overflow: hidden;
   perspective: 1000px;
   transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin: 1%;
 }
 
 .card img {
@@ -836,4 +837,12 @@ section.card {
   scale: 0;
 }
 
-/* Country select card end */
+/* Country, circuit select card end */
+
+/* Select card container start */
+.circuit-card-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+}
+/* Select card container end */

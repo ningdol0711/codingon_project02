@@ -58,12 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
     textpath.setAttribute("font-size", 30);
     textpath.textContent = text;
 
-    dynamictext.setAttribute("x", 200);
+    dynamictext.setAttribute("x", 230);
     dynamictext.appendChild(textpath);
 
     gsap
       .timeline({ repeat: 0 })
-      .to(textpath, { attr: { startOffset: "0%" }, duration: 10 });
+      .to(textpath, { attr: { startOffset: "0%" }, duration: 9 });
   }
   // Circuit page end
 
@@ -195,8 +195,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Circuit card start
   window.addEventListener("resize", function () {
     var element = document.querySelector(".card");
-    var height = element.clientHeight;
-    element.style.width = height + "px";
+    var width = element.clientWidth;
+    element.style.height = width + "px";
   });
   // Circuit card end
 });
