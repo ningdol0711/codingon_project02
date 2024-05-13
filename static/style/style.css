@@ -320,6 +320,7 @@ svg {
   font-weight: bold;
   font-size: x-large;
 }
+
 /* Login modal main modal end */
 
 /* Login modal toggle switch start */
@@ -472,7 +473,8 @@ svg {
   border-radius: 5px;
 }
 
-.front, .back {
+.front,
+.back {
   background-color: #151515;
   position: absolute;
   width: 100%;
@@ -506,7 +508,7 @@ svg {
   gap: 30px;
 }
 
-.back-content img{
+.back-content img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -547,7 +549,7 @@ svg {
   height: 100%;
 }
 
-.front-img img{
+.front-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -614,3 +616,55 @@ svg {
 }
 
 /* Info-card-end */
+
+/* Driver info modal start */
+.driver-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 40vw;
+  height: 80vh;
+  overflow-y: scroll;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.driver-modal::-webkit-scrollbar {
+  display: none;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.driver-img-container {
+  width: 100%;
+  max-height: 1371px;
+  padding-right: 4%;
+}
+
+.driver-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.driver-info-container {
+  width: 60%;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+/* Driver info modal end */
