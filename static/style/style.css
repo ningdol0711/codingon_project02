@@ -132,37 +132,25 @@ a {
 /* Team banner end */
 
 /* Circuit banner start */
-.circuit-banner {
-  width: 35%;
-  height: auto;
-  background-color: black;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-around;
-  align-items: center;
-  position: absolute;
-  left: 10%;
-}
+  #map {
+    width: 100%;
+    height: 95%;
+  }
 
-.circuit-name {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  font-weight: bold;
-}
+  #selector {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+  }
 
-.circuit-name div {
-  display: flex;
-  flex-direction: column;
-}
+  #selector p {
+    padding-right: 1%;
+  }
 
-.circuit-img {
-  width: 80%;
-  height: auto;
-  border: 1px white solid;
-}
-
+  #circuitSelect {
+    display: inline;
+  }
 /* Circuit banner end */
 
 /* Circuit page circuit start */

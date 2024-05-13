@@ -35,6 +35,117 @@ document.addEventListener("DOMContentLoaded", () => {
   // Menu end
 
   // Circuit banner start
+  if (document.querySelector("#circuitSelect")) {
+    var map = L.map("map").setView([0, 0], 2); // Initialize map with a default view
+    L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+      {
+        attribution: '&copy; <a href="https://carto.com/attribution">Carto</a>',
+        maxZoom: 18,
+      }
+    ).addTo(map);
+
+    var circuits = {
+      Monaco: {
+        "Monaco Grand Prix": [43.7347, 7.4206],
+      },
+      "United Kingdom": {
+        "Silverstone Circuit": [52.0786, -1.0169],
+      },
+      Belgium: {
+        "Circuit de Spa-Francorchamps": [50.4372, 5.9715],
+      },
+      Italy: {
+        "Autodromo Nazionale Monza": [45.6156, 9.2811],
+      },
+      "United States": {
+        "Circuit of the Americas": [30.1328, -97.6412],
+      },
+      Japan: {
+        "Suzuka Circuit": [34.8431, 136.5403],
+      },
+      Australia: {
+        "Albert Park Circuit": [-37.8497, 144.968],
+      },
+      Hungary: {
+        Hungaroring: [47.5789, 19.2489],
+      },
+      Brazil: {
+        "Interlagos Circuit": [-23.7036, -46.6997],
+      },
+      Bahrain: {
+        "Bahrain International Circuit": [26.0325, 50.5106],
+      },
+      // Add more countries and circuits here
+    };
+
+    var circuitSelect = document.getElementById("circuitSelect");
+    for (var country in circuits) {
+      var optgroup = document.createElement("optgroup");
+      optgroup.label = country;
+      circuitSelect.appendChild(optgroup);
+
+      for (var circuitName in circuits[country]) {
+        var option = document.createElement("option");
+        option.value = circuitName;
+        option.text = circuitName;
+        optgroup.appendChild(option);
+      }
+    }
+
+    var markers = [];
+
+    function addMarkers() {
+      clearMarkers();
+      for (var country in circuits) {
+        for (var circuitName in circuits[country]) {
+          var circuitLocation = circuits[country][circuitName];
+          var marker = L.marker(circuitLocation, { icon: myIcon })
+            .addTo(map)
+            .bindPopup(circuitName);
+          markers.push(marker);
+          markers.push(marker);
+        }
+      }
+    }
+
+    function clearMarkers() {
+      markers.forEach(function (marker) {
+        map.removeLayer(marker);
+      });
+      markers = [];
+    }
+
+    circuitSelect.addEventListener("change", function () {
+      var selectedCircuit = circuitSelect.value;
+      if (selectedCircuit === "all") {
+        map.setView([0, 0], 2);
+        clearMarkers();
+        addMarkers();
+      } else {
+        for (var country in circuits) {
+          if (circuits[country][selectedCircuit]) {
+            var circuitLocation = circuits[country][selectedCircuit];
+            map.setView(circuitLocation, 13);
+            clearMarkers();
+            var marker = L.marker(circuitLocation, { icon: myIcon })
+              .addTo(map)
+              .bindPopup(selectedCircuit)
+              .openPopup();
+            markers.push(marker);
+            break;
+          }
+        }
+      }
+    });
+
+    var myIcon = L.icon({
+      iconUrl: "./img/circuits/checkered-flag.svg",
+      iconSize: [45, 60],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+    });
+  }
   // Circuit banner end
 
   // Circuit page start
