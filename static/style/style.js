@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Menu start
-  if(document.querySelector('.menu-icon-box')) {
-
+  if (document.querySelector(".menu-icon-box")) {
     document
       .querySelector(".menu-icon-box")
       .addEventListener("click", function () {
@@ -11,11 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
           .classList.toggle("bi-menu-button-fill");
         document.querySelector(".menu-icon").classList.toggle("bi-menu-button");
       });
-  
+
     document.addEventListener("click", function (event) {
       const menuItems = document.querySelector(".menu-items");
       const menuBtn = document.querySelector(".menu-btn");
-  
+
       if (
         menuItems.classList.contains("show") &&
         !menuBtn.contains(event.target) &&
@@ -28,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".menu-icon").classList.toggle("bi-menu-button");
       }
     });
-  
+
     $(document).ready(function () {
       $('[data-toggle="tooltip"]').tooltip();
     });
@@ -39,16 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Circuit banner end
 
   // Circuit page start
-  if(document.querySelector('#Layer_1')) {
-
+  if (document.querySelector("#Layer_1")) {
     var svgns = "http://www.w3.org/2000/svg";
     var demo = document.querySelector("#Layer_1");
     var dynamictext = document.createElementNS(svgns, "text");
     var textpath = document.createElementNS(svgns, "textPath");
     var text = "Circuit De Monaco";
-  
+
     demo.appendChild(dynamictext);
-  
+
     textpath.id = "textpath1";
     textpath.setAttributeNS(
       "http://www.w3.org/1999/xlink",
@@ -59,10 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
     textpath.setAttribute("fill", "#fff");
     textpath.setAttribute("font-size", 30);
     textpath.textContent = text;
-  
+
     dynamictext.setAttribute("x", 200);
     dynamictext.appendChild(textpath);
-  
+
     gsap
       .timeline({ repeat: 0 })
       .to(textpath, { attr: { startOffset: "0%" }, duration: 10 });
@@ -70,12 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Circuit page end
 
   // Login, register start
-  if(document.querySelector('#switch')) {
-
+  if (document.querySelector("#switch")) {
     const toggleSwitch = document.querySelector("#switch");
     const loginModal = document.querySelector(".login-modal");
     const registerModal = document.querySelector(".register-modal");
-  
+
     toggleSwitch.addEventListener("change", () => {
       if (toggleSwitch.checked == true) {
         loginModal.classList.toggle("modal-hide");
@@ -85,33 +82,33 @@ document.addEventListener("DOMContentLoaded", () => {
         registerModal.classList.toggle("modal-hide");
       }
     });
-  
+
     const loginIdInput = document.querySelector("#loginId");
     const loginPwInput = document.querySelector("#loginPw");
     const checkCircle1 = document.querySelector("#checkCircle1 svg");
     const checkCircle2 = document.querySelector("#checkCircle2 svg");
     const checkCircle3 = document.querySelector("#checkCircle3 svg");
-  
+
     loginIdInput.addEventListener("input", function () {
       if (loginIdInput.value !== "") {
         checkCircle1.style.fill = "red";
       } else {
         checkCircle1.style.fill = "black";
       }
-  
+
       updateLoginButton();
     });
-  
+
     loginPwInput.addEventListener("input", function () {
       if (loginPwInput.value !== "") {
         checkCircle2.style.fill = "red";
       } else {
         checkCircle2.style.fill = "black";
       }
-  
+
       updateLoginButton();
     });
-  
+
     function updateLoginButton() {
       if (loginIdInput.value !== "" && loginPwInput.value !== "") {
         checkCircle3.style.fill = "green";
@@ -119,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
         checkCircle3.style.fill = "black";
       }
     }
-  
+
     const registerEmail = document.querySelector("#registerEmail");
     const registerId = document.querySelector("#registerId");
     const registerPw = document.querySelector("#registerPw");
@@ -127,37 +124,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkCircle5 = document.querySelector("#checkCircle5 svg");
     const checkCircle6 = document.querySelector("#checkCircle6 svg");
     const checkCircle7 = document.querySelector("#checkCircle7 svg");
-  
+
     registerEmail.addEventListener("input", function () {
       if (registerEmail.value !== "") {
         checkCircle4.style.fill = "red";
       } else {
         checkCircle4.style.fill = "black";
       }
-  
+
       updateRegisterButton();
     });
-  
+
     registerId.addEventListener("input", function () {
       if (registerId.value !== "") {
         checkCircle5.style.fill = "red";
       } else {
         checkCircle5.style.fill = "black";
       }
-  
+
       updateRegisterButton();
     });
-  
+
     registerPw.addEventListener("input", function () {
       if (registerPw.value !== "") {
         checkCircle6.style.fill = "red";
       } else {
         checkCircle6.style.fill = "black";
       }
-  
+
       updateRegisterButton();
     });
-  
+
     function updateRegisterButton() {
       if (
         registerEmail.value !== "" &&
@@ -176,7 +173,8 @@ document.addEventListener("DOMContentLoaded", () => {
   $(".num").each(function () {
     var $this = $(this),
       countTo = $this.attr("data-count");
-    $({ countNum: $this.text() }).animate({
+    $({ countNum: $this.text() }).animate(
+      {
         countNum: countTo,
       },
       {
@@ -193,4 +191,12 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   });
   // Driver info count end
+
+  // Circuit card start
+  window.addEventListener("resize", function () {
+    var element = document.querySelector(".card");
+    var height = element.clientHeight;
+    element.style.width = height + "px";
+  });
+  // Circuit card end
 });
