@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Menu start
-  if (document.querySelector(".menu-btn")) {
+  if (document.querySelector(".menu-icon-box")) {
     document
       .querySelector(".menu-icon-box")
       .addEventListener("click", function () {
@@ -27,18 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".menu-icon").classList.toggle("bi-menu-button");
       }
     });
-  }
 
-  $(document).ready(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-  });
+    $(document).ready(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  }
   // Menu end
 
   // Circuit banner start
   // Circuit banner end
 
   // Circuit page start
-  if (document.querySelector(`#Layer_1`)) {
+  if (document.querySelector("#Layer_1")) {
     var svgns = "http://www.w3.org/2000/svg";
     var demo = document.querySelector("#Layer_1");
     var dynamictext = document.createElementNS(svgns, "text");
@@ -58,22 +58,20 @@ document.addEventListener("DOMContentLoaded", () => {
     textpath.setAttribute("font-size", 30);
     textpath.textContent = text;
 
-    dynamictext.setAttribute("x", 200);
+    dynamictext.setAttribute("x", 230);
     dynamictext.appendChild(textpath);
 
     gsap
       .timeline({ repeat: 0 })
-      .to(textpath, { attr: { startOffset: "0%" }, duration: 10 });
+      .to(textpath, { attr: { startOffset: "0%" }, duration: 9 });
   }
   // Circuit page end
 
   // Login, register start
-  if (document.querySelector(".login-modal")) {
+  if (document.querySelector("#switch")) {
     const toggleSwitch = document.querySelector("#switch");
     const loginModal = document.querySelector(".login-modal");
     const registerModal = document.querySelector(".register-modal");
-
-    console.log(toggleSwitch);
 
     toggleSwitch.addEventListener("change", () => {
       if (toggleSwitch.checked == true) {
@@ -170,4 +168,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   // Login, register end
+
+  // Driver info count start
+  $(".num").each(function () {
+    var $this = $(this),
+      countTo = $this.attr("data-count");
+    $({ countNum: $this.text() }).animate(
+      {
+        countNum: countTo,
+      },
+      {
+        duration: 3000,
+        easing: "linear",
+        step: function () {
+          $this.text(Math.floor(this.countNum));
+        },
+        complete: function () {
+          $this.text(this.countNum);
+          //alert('finished');
+        },
+      }
+    );
+  });
+  // Driver info count end
+
+  // Circuit card start
+  window.addEventListener("resize", function () {
+    var element = document.querySelector(".card");
+    var width = element.clientWidth;
+    element.style.height = width + "px";
+  });
+  // Circuit card end
 });

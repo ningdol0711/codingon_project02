@@ -221,7 +221,7 @@ svg {
   font-size: x-large;
 }
 
-.card {
+.login-card {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -326,6 +326,7 @@ svg {
   font-weight: bold;
   font-size: x-large;
 }
+
 /* Login modal main modal end */
 
 /* Login modal toggle switch start */
@@ -461,3 +462,393 @@ svg {
 }
 
 /* Login modal toggle switch end */
+
+/* Info-card-start */
+.info-card {
+  overflow: visible;
+  width: 300px;
+  height: 450px;
+}
+
+.info-card-content {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 300ms;
+  box-shadow: 0px 0px 10px 1px #000000ee;
+  border-radius: 5px;
+}
+
+.front,
+.back {
+  background-color: #151515;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.back {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.back-content {
+  position: absolute;
+  width: 99%;
+  height: 99%;
+  background-color: #151515;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.back-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-card:hover .info-card-content {
+  transform: rotateY(180deg);
+}
+
+@keyframes rotation_481 {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  0% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.front {
+  transform: rotateY(180deg);
+  color: white;
+}
+
+.front .front-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.front-img {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+
+.front-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.front-content .badge {
+  background-color: #00000055;
+  padding: 2px 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+  width: fit-content;
+}
+
+.description {
+  box-shadow: 0px 0px 10px 5px #00000088;
+  width: 100%;
+  padding: 10px;
+  background-color: #00000099;
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+}
+
+.title {
+  font-size: 11px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title * {
+  width: 50%;
+  color: white;
+}
+
+.info-card-footer {
+  color: #ffffff;
+  margin-top: 5px;
+  font-size: 8px;
+}
+
+.driver-front-content {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.driver {
+  display: inline-block;
+  width: 50%;
+}
+
+.driver img {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.driver:hover img {
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+.driver small {
+  position: absolute;
+  z-index: 3;
+}
+
+/* Info-card-end */
+
+/* Driver info modal start */
+.driver-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 50vw;
+  height: 90vh;
+  overflow-y: scroll;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.driver-modal::-webkit-scrollbar {
+  display: none;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.driver-img-container {
+  width: 95%;
+  max-height: 1371px;
+  padding-right: 4%;
+}
+
+.driver-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.driver-info-container {
+  width: 60%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+.driver-info-name {
+  font-size: larger;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1024px) {
+  .driver-modal {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .info-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .driver-img-container {
+    padding: 0;
+  }
+
+  .driver-img-container img {
+    width: 100vw;
+  }
+
+  .driver-info-container {
+    width: 100%;
+  }
+}
+
+/* Driver info modal end */
+
+/* Schedule select roadio btn  start */
+.wrapper {
+  --font-color-dark: #323232;
+  --font-color-light: #fff;
+  --bg-color: #fff;
+  --main-color: #323232;
+  --secondary-color: #505050;
+  position: relative;
+  height: 36px;
+  width: auto;
+  background-color: var(--bg-color);
+  border: 2px solid var(--main-color);
+  border-radius: 34px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 4px 4px var(--main-color);
+}
+
+.option {
+  flex: 1;
+  display: inline-block;
+  margin-right: 5px;
+  width: auto;
+  height: 28px;
+  position: relative;
+  top: 2px;
+  left: 2px;
+  border-radius: 34px;
+  transition: 0.25s cubic-bezier(0, 0, 0, 1);
+}
+
+.option:last-child {
+  margin-right: 4px;
+}
+
+.option:hover {
+  background-color: var(--secondary-color);
+}
+
+.option:hover .span {
+  color: var(--font-color-light);
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  appearance: none;
+  cursor: pointer;
+}
+
+.btn {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.span {
+  color: var(--font-color-dark);
+}
+
+.input:checked+.btn {
+  background-color: var(--main-color);
+  transition: 0.2s cubic-bezier(0, 0, 0, 1);
+}
+
+.input:checked+.btn .span {
+  color: var(--font-color-light);
+  transition: 0.25s cubic-bezier(0, 0, 0, 1);
+}
+
+/* Schedule select roadio btn  end */
+
+/* Country, circuit select card start */
+section.card {
+  position: relative;
+  width: 30%;
+  height: auto;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin: 1%;
+}
+
+.card img {
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 3px;
+  width: 100%;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px #000000;
+  background-color: #f2f2f2;
+  color: #ffffff;
+}
+
+.card__content {
+  color: #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  margin: 0;
+  padding-left: 5px;
+  font-size: 24px;
+  color: #000000;
+  font-weight: 700;
+}
+
+.card:hover svg {
+  scale: 0;
+}
+
+/* Country, circuit select card end */
+
+/* Select card container start */
+.circuit-card-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+}
+/* Select card container end */
