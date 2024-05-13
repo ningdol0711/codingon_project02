@@ -623,8 +623,8 @@ svg {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 40vw;
-  height: 80vh;
+  width: 50vw;
+  height: 90vh;
   overflow-y: scroll;
   position: absolute;
   top: 50%;
@@ -644,7 +644,7 @@ svg {
 }
 
 .driver-img-container {
-  width: 100%;
+  width: 95%;
   max-height: 1371px;
   padding-right: 4%;
 }
@@ -662,9 +662,38 @@ svg {
   width: 60%;
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
   top: 0;
   right: 0;
+}
+
+.driver-info-name {
+  font-size: larger;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1024px) {
+  .driver-modal {
+    width: 100vw;
+    height: 100vh;
+  }
+  .info-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .driver-img-container {
+    padding: 0;
+  }
+
+  .driver-img-container img {
+    width: 100vw;
+  }
+
+  .driver-info-container {
+    width: 100%;
+  }
 }
 
 /* Driver info modal end */

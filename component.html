@@ -12,8 +12,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@<version>/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@<version>/examples/jsm/"
+      }
+    }
+  </script>
   <script defer src="/static/style/style.js"></script>
-  <!-- <script defer src="./models/Circuit.js"></script> -->
   <title>Component</title>
 </head>
 <body>
@@ -23,14 +30,30 @@
         <img src="./img/Team/Maxverstappen.jpg" alt="Maxverstappen">
       </div>
       <div class="driver-info-container">
-        <p class="driver-info">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus, voluptatum sequi? Omnis esse corporis error assumenda, cumque explicabo perspiciatis doloremque vitae vero nam consequatur dignissimos veritatis neque, in animi provident!
+        <p class="driver-info-name">
+          Max Verstappen
+        </p>
+        <p class="driver-info-Team">
+          Team : Red Bull Racing
+        </p>
+        <p class="driver-info-Podiums">
+          Podiums : <span class="num" data-count="39"></span>
+        </p>
+        <p class="driver-info-Points">
+          Points : <span class="num" data-count="1587"></span>
+        </p>
+        <p class="driver-info-GP">
+          Grand Prix entered : <span class="num" data-count="264"></span>
+        </p>
+        <p class="driver-info-WC">
+          World Championships : <span class="num" data-count="0"></span>
         </p>
       </div>
     </div>
     <div class="driver-record-container">
       <p class="driver-record">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, tempora.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima soluta, voluptate accusantium nam fugit, et ut ratione assumenda ea excepturi natus repellendus earum, animi dolor officiis atque. Reprehenderit, eum officia.
       </p>
     </div>
   </div>
