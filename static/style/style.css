@@ -12,10 +12,11 @@ body {
 #main-video-container {
   display: block;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   overflow: hidden;
   z-index: -1;
   background-color: black;
+  pointer-events: none;
 }
 
 iframe {
@@ -40,10 +41,15 @@ a {
 
 .menu-btn {
   position: fixed;
-  top: 0;
+  top: 10%;
   right: 0;
   margin: 0.5%;
   padding: 0.5%;
+  z-index: 999;
+}
+
+.menu-btn * {
+  color: white;
 }
 
 .menu-items {
@@ -53,7 +59,7 @@ a {
 }
 
 .menu-items.show {
-  max-height: 200px;
+  max-height: 300px;
 }
 
 .menu-box {
