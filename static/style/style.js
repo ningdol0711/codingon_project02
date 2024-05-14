@@ -304,10 +304,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // Driver info count end
 
   // Circuit card start
-  window.addEventListener("resize", function () {
-    var element = document.querySelector(".card");
-    var width = element.clientWidth;
-    element.style.height = width + "px";
+  window.addEventListener("DOMContentLoaded", function () {
+    function adjustSquareSize() {
+      var element = document.querySelector(".card");
+      var width = element.clientWidth;
+      element.style.height = width + "px";
+    }
+
+    adjustSquareSize();
+
+    window.addEventListener("resize", adjustSquareSize);
   });
   // Circuit card end
 });
