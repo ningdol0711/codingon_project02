@@ -304,34 +304,38 @@ document.addEventListener("DOMContentLoaded", () => {
   // Driver info count end
 
   // Circuit card start
-  function adjustSquareSize() {
-    var element = document.querySelector(".card");
-    var width = element.clientWidth;
-    element.style.height = width + "px";
-  }
+  if (document.querySelector(".circuit-card-container")) {
+    function adjustSquareSize() {
+      var element = document.querySelector(".card");
+      var width = element.clientWidth;
+      element.style.height = width + "px";
+    }
 
-  adjustSquareSize();
+    adjustSquareSize();
 
-  window.addEventListener("resize", adjustSquareSize);
+    window.addEventListener("resize", adjustSquareSize);
 
-  var containers = document.querySelectorAll(".circuit-card-container");
+    var containers = document.querySelectorAll(".circuit-card-container");
 
-  containers.forEach(function (container) {
-    container.addEventListener("wheel", function (event) {
-      event.preventDefault();
+    containers.forEach(function (container) {
+      container.addEventListener("wheel", function (event) {
+        event.preventDefault();
 
-      var delta = event.deltaY || event.detail || event.wheelDelta;
+        var delta = event.deltaY || event.detail || event.wheelDelta;
 
-      if (container.scrollLeft === 0 && delta < 0) {
-        window.scrollBy({ top: delta, left: 0 });
-      } else if (
-        container.scrollLeft >= container.scrollWidth - container.clientWidth - 1 && delta > 0
-      ) {
-        window.scrollBy({ top: delta, left: 0 });
-      } else {
-        container.scrollLeft += (delta > 0 ? 1 : -1) * 40;
-      }
+        if (container.scrollLeft === 0 && delta < 0) {
+          window.scrollBy({ top: delta, left: 0 });
+        } else if (
+          container.scrollLeft >=
+            container.scrollWidth - container.clientWidth - 1 &&
+          delta > 0
+        ) {
+          window.scrollBy({ top: delta, left: 0 });
+        } else {
+          container.scrollLeft += (delta > 0 ? 1 : -1) * 40;
+        }
+      });
     });
-  });
+  }
   // Circuit card end
 });

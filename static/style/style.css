@@ -3,6 +3,20 @@
   src: url(/src/fonts/Formula1-Regular-1.woff);
 }
 
+:root {
+  --f1-main-red: #FF1801;
+  --RedBull-red: #E30118;
+  --RedBull-yellow: #FDD900;
+  --RedBull-gray: #C0BFBF;
+  --AMG-silver: #C8CCCE;
+  --AMG-darkgray: #565F64;
+  --AMG-green: #00A19B;
+  --Ferrari-yellow: #FFF200;
+  --Ferrari-green: #00A551;
+  --Ferrari-red: #EF1A2D;
+  --McLaren-orange: #FF8000;
+}
+
 body {
   font-family: Formula1;
   background-color: #272727;
@@ -132,25 +146,26 @@ a {
 /* Team banner end */
 
 /* Circuit banner start */
-  #map {
-    width: 100%;
-    height: 95%;
-  }
+#map {
+  width: 100%;
+  height: 95%;
+}
 
-  #selector {
-    width: 100%;
-    height: 5%;
-    display: flex;
-    align-items: center;
-  }
+#selector {
+  width: 100%;
+  height: 5%;
+  display: flex;
+  align-items: center;
+}
 
-  #selector p {
-    padding-right: 1%;
-  }
+#selector p {
+  padding-right: 1%;
+}
 
-  #circuitSelect {
-    display: inline;
-  }
+#circuitSelect {
+  display: inline;
+}
+
 /* Circuit banner end */
 
 /* Circuit page circuit start */
@@ -746,7 +761,7 @@ svg {
   cursor: pointer;
 }
 
-.btn {
+.option-btn {
   width: 100%;
   height: 100%;
   border-radius: 50px;
@@ -759,12 +774,12 @@ svg {
   color: var(--font-color-dark);
 }
 
-.input:checked+.btn {
+.input:checked+.option-btn {
   background-color: var(--main-color);
   transition: 0.2s cubic-bezier(0, 0, 0, 1);
 }
 
-.input:checked+.btn .span {
+.input:checked+.option-btn .span {
   color: var(--font-color-light);
   transition: 0.25s cubic-bezier(0, 0, 0, 1);
 }
@@ -808,7 +823,7 @@ section.card {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   box-sizing: border-box;
   background-color: #f2f2f2;
   transform: rotateX(-90deg);
@@ -850,3 +865,9 @@ section.card {
 }
 
 /* Select card container end */
+
+/* shop page header start */
+nav a {
+  color: white;
+}
+/* shop page header end */
