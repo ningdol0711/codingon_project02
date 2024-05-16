@@ -5,6 +5,7 @@
 
 :root {
   --f1-main-red: #FF1801;
+  --f1-main-darkgray: #2b2b2b;
   --RedBull-red: #E30118;
   --RedBull-yellow: #FDD900;
   --RedBull-gray: #C0BFBF;
@@ -19,7 +20,7 @@
 
 body {
   font-family: Formula1;
-  background-color: #272727;
+  background-color: var(--f1-main-darkgray);
 }
 
 /* Main page background video start */
@@ -181,7 +182,7 @@ a {
 }
 
 #circuitSelect * {
-  background-color: #2b2b2b;
+  background-color: var(--f1-main-darkgray);
   color: white;
 }
 
@@ -190,7 +191,6 @@ a {
 /* Circuit page circuit start */
 body,
 html {
-  background: #272727;
   height: 100%;
   padding: 0;
   margin: 0;
