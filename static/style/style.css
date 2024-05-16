@@ -885,6 +885,107 @@ section.card {
 
 /* Select card container end */
 
-/* shop page header start */
-  
-/* shop page header end */
+/* shop page footer start */
+.shoppage-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(93, 93, 93);
+  padding: 0 3%;
+}
+
+.shoppage-footer * {
+  font-size: 16px;
+  color: white;
+}
+
+.footer-top-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: top;
+  padding: 0%;
+}
+
+.top-content-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0%;
+}
+
+.top-ul {
+  padding: 1%;
+  margin: 0 10% 0 0;
+  text-wrap: nowrap;
+}
+
+.top-ul p {
+  font-weight: bold;
+  color: black;
+  margin-bottom: 12px;
+}
+
+.top-li {
+  list-style-type: none;
+  margin-bottom: 5%;
+  text-wrap: nowrap;
+}
+
+.top-li:hover {
+  opacity: 0.6;
+  scale: 1.1;
+}
+
+.signin-text-btn-box {
+  margin: 10px 0 10px 0;
+}
+
+.signin-text-btn-box p {
+  margin: 0;
+  color: black;
+}
+
+.signin-btn {
+  border: 1px var(--f1-main-red) solid;
+  color: var(--f1-main-red);
+}
+
+.signin-btn:hover {
+  background-color: var(--f1-main-red);
+}
+
+@media screen and (max-width: 950px) and (min-width: 691px) {
+  .shoppage-footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .footer-top-menu {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .shoppage-footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .top-content-box {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .top-ul {
+    text-align: center;
+    margin: 0;
+  }
+}
+
+/* shop page footer end */
