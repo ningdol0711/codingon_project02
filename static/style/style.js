@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Circuit banner start
   if (document.querySelector("#circuitSelect")) {
-    var map = L.map("map").setView([0, 0], 2); // Initialize map with a default view
+    var map = L.map("map").setView([0, 0], 2);
     L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
       {
@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
       Bahrain: {
         "Bahrain International Circuit": [26.0325, 50.5106],
       },
-      // Add more countries and circuits here
     };
 
     var circuitSelect = document.getElementById("circuitSelect");
@@ -102,8 +101,11 @@ document.addEventListener("DOMContentLoaded", () => {
           var circuitLocation = circuits[country][circuitName];
           var marker = L.marker(circuitLocation, { icon: myIcon })
             .addTo(map)
-            .bindPopup(circuitName);
-          markers.push(marker);
+            .bindPopup(
+              `<a href="https://example.com/${circuitName
+                .replace(/\s+/g, "-")
+                .toLowerCase()}">${circuitName}</a>`
+            );
           markers.push(marker);
         }
       }
@@ -130,7 +132,11 @@ document.addEventListener("DOMContentLoaded", () => {
             clearMarkers();
             var marker = L.marker(circuitLocation, { icon: myIcon })
               .addTo(map)
-              .bindPopup(selectedCircuit)
+              .bindPopup(
+                `<a href="https://example.com/${selectedCircuit
+                  .replace(/\s+/g, "-")
+                  .toLowerCase()}">${selectedCircuit}</a>`
+              )
               .openPopup();
             markers.push(marker);
             break;
@@ -144,6 +150,18 @@ document.addEventListener("DOMContentLoaded", () => {
       iconSize: [45, 60],
       iconAnchor: [12, 41],
       popupAnchor: [1, -34],
+    });
+
+    addMarkers();
+
+    var circuitSelect = document.getElementById("circuitSelect");
+
+    circuitSelect.addEventListener("click", function () {
+      this.classList.toggle("active");
+    });
+
+    circuitSelect.addEventListener("blur", function () {
+      this.classList.remove("active");
     });
   }
   // Circuit banner end
