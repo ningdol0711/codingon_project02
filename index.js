@@ -11,7 +11,23 @@ app.use('/style', express.static('./static/style'));
 app.use('/src', express.static('./src'));
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {title: 'Main'});
+})
+
+app.get('/teams', (req, res) => {
+  res.render('teams', {title: 'Teams'});
+})
+
+app.get('/circuits', (req, res) => {
+  res.render('circuits', {title: 'Circuits'});
+})
+
+app.get('/schedule', (req, res) => {
+  res.render('schedule', {title: 'Schedule'});
+})
+
+app.get('/social', (req, res) => {
+  res.render('social', {title: 'Social'});
 })
 
 app.listen(PORT, () => {
