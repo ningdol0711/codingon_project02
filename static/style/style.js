@@ -40,6 +40,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   // Menu end
 
+  // Login modal start
+  const loginBtn = document.querySelector(".login-btn");
+  const modal = document.querySelector(".login-register-modal");
+  const overlay = document.createElement("div");
+  overlay.classList.add("modal-overlay");
+  document.body.appendChild(overlay);
+
+  loginBtn.addEventListener("click", () => {
+    modal.style.display = "block";
+    overlay.style.display = "block";
+  });
+
+  overlay.addEventListener("click", () => {
+    modal.style.display = "none";
+    overlay.style.display = "none";
+  });
+  // Login modal end
+
   // Circuit banner start
   if (document.querySelector("#circuitSelect")) {
     var map = L.map("map").setView([0, 0], 2);
@@ -187,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dynamictext.setAttribute("x", 0);
     dynamictext.appendChild(textpath);
 
-    var duration = pathLength / 500;
+    var duration = pathLength / 400;
 
     gsap
       .timeline({ repeat: 0 })
