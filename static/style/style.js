@@ -72,13 +72,16 @@ document.addEventListener("DOMContentLoaded", () => {
       for (var country in circuits) {
         for (var circuitName in circuits[country]) {
           var circuitLocation = circuits[country][circuitName];
-          var circuitNameLower = circuitName.replace(/\s+/g, "-").toLowerCase();
-          var data = { circuit: circuitNameLower };
+          var circuitName = circuitName.replace(/\s+/g, "-");
+          var data = { circuit: circuitName };
           var dataString = encodeURIComponent(JSON.stringify(data));
           var marker = L.marker(circuitLocation, { icon: myIcon })
             .addTo(map)
             .bindPopup(
-              `<a href="/circuit?data=${dataString}">${circuitName}</a>`
+              `<a href="/circuit?data=${dataString}">${circuitName.replace(
+                /-/g,
+                " "
+              )}</a>`
             ); // 링크 생성
           markers.push(marker);
         }
@@ -104,15 +107,16 @@ document.addEventListener("DOMContentLoaded", () => {
             var circuitLocation = circuits[country][selectedCircuit];
             map.setView(circuitLocation, 13);
             clearMarkers();
-            var circuitNameLower = selectedCircuit
-              .replace(/\s+/g, "-")
-              .toLowerCase();
-            var data = { circuit: circuitNameLower };
+            var circuitName = selectedCircuit.replace(/\s+/g, "-");
+            var data = { circuit: circuitName };
             var dataString = encodeURIComponent(JSON.stringify(data));
             var marker = L.marker(circuitLocation, { icon: myIcon })
               .addTo(map)
               .bindPopup(
-                `<a href="/circuit?data=${dataString}">${selectedCircuit}</a>`
+                `<a href="/circuit?data=${dataString}">${selectedCircuit.replace(
+                  /-/g,
+                  " "
+                )}</a>`
               )
               .openPopup();
             markers.push(marker);
@@ -145,19 +149,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Circuit page start
   // URL에서 JSON 데이터 추출하기
-  const urlParams = new URLSearchParams(window.location.search);
-  const jsonData = urlParams.get("data");
-  const circuitData = JSON.parse(decodeURIComponent(jsonData));
-
-  // 추출된 데이터로 SVG 파일 이름 생성하기
-  // const svgFileName = circuitData.circuit + ".ejs";
 
   if (document.querySelector("#Layer_1")) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const jsonData = urlParams.get("data");
+    const circuitData = JSON.parse(decodeURIComponent(jsonData));
+
+    // 추출된 데이터로 SVG 파일 이름 생성하기
+    const svgFileName = circuitData.circuit;
+    console.log(svgFileName);
     var svgns = "http://www.w3.org/2000/svg";
     var demo = document.querySelector("#Layer_1");
     var dynamictext = document.createElementNS(svgns, "text");
     var textpath = document.createElementNS(svgns, "textPath");
-    var text = `${circuitData.circuit}`;
+
+    var text = `${svgFileName.replace(/-/g, " ")}`;
 
     demo.appendChild(dynamictext);
 
@@ -167,17 +173,25 @@ document.addEventListener("DOMContentLoaded", () => {
       "xlink:href",
       "#masterpath"
     );
+
+    const pathElement = document.querySelector("#masterpath");
+    const pathLength = pathElement.getTotalLength();
+    const textLength = text.length;
+    const fontSize = Math.min(30, (pathLength / textLength) * 1.5);
+
+    textpath.setAttribute("font-size", fontSize);
     textpath.setAttribute("startOffset", "100%");
     textpath.setAttribute("fill", "#fff");
-    textpath.setAttribute("font-size", 30);
     textpath.textContent = text;
 
-    dynamictext.setAttribute("x", 230);
+    dynamictext.setAttribute("x", 0);
     dynamictext.appendChild(textpath);
+
+    var duration = pathLength / 500;
 
     gsap
       .timeline({ repeat: 0 })
-      .to(textpath, { attr: { startOffset: "0%" }, duration: 9 });
+      .to(textpath, { attr: { startOffset: "0%" }, duration: duration });
   }
   // Circuit page end
 

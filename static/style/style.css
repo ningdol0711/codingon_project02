@@ -190,7 +190,8 @@ a {
 /* Circuit banner end */
 
 /* Circuit page circuit start */
-body, html {
+body,
+html {
   height: 100%;
   padding: 0;
   margin: 0;
@@ -198,41 +199,12 @@ body, html {
   color: #fff;
 }
 
-svg {
+body>svg {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
-  margin: auto auto;
-  width: auto;
+  width: 100%;
   height: 100%;
-}
-
-.st0 {
-  fill: none;
-  stroke: #374151;
-  stroke-width: 7.8545;
-  stroke-miterlimit: 3.9273;
-}
-
-.st1 {
-  fill: none;
-  stroke: #EF4444;
-  stroke-width: 1.9636;
-  stroke-miterlimit: 3.9273;
-}
-
-.st2 {
-  fill: none;
-  stroke: #3B82F6;
-  stroke-width: 1.9636;
-  stroke-miterlimit: 3.9273;
-}
-
-.st3 {
-  fill: none;
-  stroke: #FBBF24;
-  stroke-width: 1.9636;
-  stroke-miterlimit: 3.9273;
 }
 
 /* Circuit page circuit end */
@@ -248,13 +220,13 @@ svg {
   font-size: x-large;
 }
 
-.card {
+.login-card {
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   min-height: 350px;
   width: 300px;
-  flex-direction: column;
   gap: 35px;
   background: #e3e3e3;
   box-shadow: 16px 16px 32px #b6b6b6,
@@ -326,7 +298,6 @@ svg {
   text-transform: uppercase;
   font-size: 10px;
   letter-spacing: 2px;
-  margin-bottom: 1em;
 }
 
 .enter:hover {
@@ -353,17 +324,19 @@ svg {
   font-weight: bold;
   font-size: x-large;
 }
+
 /* Login modal main modal end */
 
 /* Login modal toggle switch start */
 .enterBox {
+  height: 30%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .checkCircleBox {
-  width: 50%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;

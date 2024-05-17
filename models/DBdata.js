@@ -7,7 +7,7 @@ const connect = mysql.createConnection({
   database: 'f1',
 })
 
-exports.getCircuit = (cb) => {
+exports.getCircuits = (cb) => {
   const sql = `select * from circuits`;
   connect.query(sql, (err, rows) => {
     if(err) {throw(err);}

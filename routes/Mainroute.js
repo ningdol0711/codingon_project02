@@ -2,31 +2,8 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controller/MainController');
 
-// app.get('/', (req, res) => {
-//   res.render('index', {title: 'Main'});
-// })
-
-// app.get('/teams', (req, res) => {
-//   res.render('teams', {title: 'Teams'});
-// })
-
-// app.get('/circuits', (req, res) => {
-//   res.render('circuits', {title: 'Circuits'});
-// })
-
-// app.get('/schedule', (req, res) => {
-//   res.render('schedule', {title: 'Schedule'});
-// })
-
-// app.get('/social', (req, res) => {
-//   res.render('social', {title: 'Social'});
-// })
-
-// app.get('/circuit', (req, res) => {
-//   res.render('circuit', {title: 'Circuit', circuit: 'monaco-grand-prix'});
-// })
-
 router.get('/', controller.main);
 router.get('/circuits', controller.circuits);
+router.get('/circuit', controller.circuit)
 
 module.exports = router;
