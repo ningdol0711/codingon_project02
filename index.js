@@ -9,6 +9,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use('/style', express.static('./static/style'));
 app.use('/src', express.static('./src'));
+app.use('/img', express.static('./img'));
 
 app.get('/', (req, res) => {
   res.render('index', {title: 'Main'});
@@ -28,6 +29,10 @@ app.get('/schedule', (req, res) => {
 
 app.get('/social', (req, res) => {
   res.render('social', {title: 'Social'});
+})
+
+app.get('/circuit', (req, res) => {
+  res.render('circuit', {title: 'Circuit'});
 })
 
 app.listen(PORT, () => {

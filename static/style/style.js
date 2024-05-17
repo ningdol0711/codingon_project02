@@ -102,9 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
           var marker = L.marker(circuitLocation, { icon: myIcon })
             .addTo(map)
             .bindPopup(
-              `<a href="https://example.com/${circuitName
-                .replace(/\s+/g, "-")
-                .toLowerCase()}">${circuitName}</a>`
+              `<a href="https://127.0.0.1:8000/circuit${JSON.stringify({circuit: circuitName})}">${circuitName}</a>`
             );
           markers.push(marker);
         }
@@ -133,9 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
             var marker = L.marker(circuitLocation, { icon: myIcon })
               .addTo(map)
               .bindPopup(
-                `<a href="https://example.com/${selectedCircuit
-                  .replace(/\s+/g, "-")
-                  .toLowerCase()}">${selectedCircuit}</a>`
+                `<a href="https://127.0.0.1:8000/circuit${JSON.stringify({circuit: selectedCircuit})}">${selectedCircuit}</a>`
               )
               .openPopup();
             markers.push(marker);

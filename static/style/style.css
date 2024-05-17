@@ -97,7 +97,7 @@ a {
 
 /* Team banner start */
 .team-banner {
-  width: 22%;
+  width: 16%;
   height: auto;
   position: relative;
   left: 13.5%;
@@ -123,8 +123,8 @@ a {
 }
 
 .team-img {
-  width: 95%;
-  height: 95%;
+  width: 90%;
+  height: 90%;
   padding-bottom: 2%;
   transform: translateX(-110%);
   transition: transform 0.7s;
@@ -189,8 +189,7 @@ a {
 /* Circuit banner end */
 
 /* Circuit page circuit start */
-body,
-html {
+body, html {
   height: 100%;
   padding: 0;
   margin: 0;
@@ -198,8 +197,8 @@ html {
   color: #fff;
 }
 
-svg {
-  width: 100%;
+.svg-container {
+  width: auto;
   height: 100%;
 }
 
