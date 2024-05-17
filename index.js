@@ -32,7 +32,7 @@ app.get('/social', (req, res) => {
 })
 
 app.get('/circuit', (req, res) => {
-  res.render('circuit', {title: 'Circuit'});
+  res.render('circuit', {title: 'Circuit', circuit: 'monaco-grand-prix'});
 })
 
 app.listen(PORT, () => {

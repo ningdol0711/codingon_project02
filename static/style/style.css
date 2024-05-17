@@ -197,7 +197,11 @@ body, html {
   color: #fff;
 }
 
-.svg-container {
+svg {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  margin: auto auto;
   width: auto;
   height: 100%;
 }
