@@ -161,6 +161,7 @@ a {
 }
 
 #selector p {
+  font-size: 30px;
   padding-right: 2%;
   margin: 0;
 }
@@ -236,6 +237,7 @@ svg {
 
 /* Circuit page circuit end */
 
+
 /* Login modal main modal start */
 .login {
   color: #000;
@@ -246,7 +248,7 @@ svg {
   font-size: x-large;
 }
 
-.login-card {
+.card {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -351,7 +353,6 @@ svg {
   font-weight: bold;
   font-size: x-large;
 }
-
 /* Login modal main modal end */
 
 /* Login modal toggle switch start */
@@ -362,7 +363,7 @@ svg {
 }
 
 .checkCircleBox {
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;

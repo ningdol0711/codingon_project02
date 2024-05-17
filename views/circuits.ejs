@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <%-include("head.ejs") %>
 </head>
 <body>
   <div id="selector">
-    <p>Select circuit </p>
+    <p>Select circuit</p>
     <select id="circuitSelect">
-      <option value="all" selected>All circuits</option>
+      <option value="all">All Circuits</option>
+      <% for (var country in circuits) { %>
+        <optgroup label="<%= country %>">
+          <% for (var circuitName in circuits[country]) { %>
+            <option value="<%= circuitName %>"><%= circuitName %></option>
+          <% } %>
+        </optgroup>
+      <% } %>
     </select>
   </div>
   <div id="map"></div>
+  <script>
+    var circuits = <%- JSON.stringify(circuits) %>;
+  </script>
 </body>
 </html>
