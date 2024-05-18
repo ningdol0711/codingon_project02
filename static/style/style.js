@@ -41,16 +41,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // Menu end
 
   // Login modal start
-  const loginBtn = document.querySelector(".login-btn");
   const modal = document.querySelector(".login-register-modal");
   const overlay = document.createElement("div");
   overlay.classList.add("modal-overlay");
   document.body.appendChild(overlay);
-
-  loginBtn.addEventListener("click", () => {
-    modal.style.display = "block";
-    overlay.style.display = "block";
-  });
+  
+  if(document.querySelector('.login-btn')) {
+    const loginBtn = document.querySelector(".login-btn");
+    loginBtn.addEventListener("click", () => {
+      modal.style.display = "block";
+      overlay.style.display = "block";
+    });
+  }
 
   overlay.addEventListener("click", () => {
     modal.style.display = "none";
@@ -175,7 +177,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 추출된 데이터로 SVG 파일 이름 생성하기
     const svgFileName = circuitData.circuit;
-    console.log(svgFileName);
     var svgns = "http://www.w3.org/2000/svg";
     var demo = document.querySelector("#Layer_1");
     var dynamictext = document.createElementNS(svgns, "text");
