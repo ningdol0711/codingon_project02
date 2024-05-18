@@ -1,3 +1,7 @@
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
+const DBUsers = require("../models/DBUsers");
+const SECRET_KEY = "YHS";
 const DBdata = require("../models/DBdata");
 
 exports.main = (req, res) => {
@@ -26,7 +30,43 @@ exports.circuit = (req, res) => {
   }
 };
 
-exports.login = (req, res) => {
-  const userData = req.query.data;
+exports.userLogin = async (req, res) => {
+  const { id, pw } = req.body;
 
-}
+  try {
+    const user = await DBUsers.findUserById(id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const isMatch = await bcrypt.compare(pw, user.userPW);
+    if (!isMatch) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    const token = jwt.sign(
+      { userId: user.userNUM, userEmail: user.userEmail },
+      SECRET_KEY,
+      { expiresIn: "1h" }
+    );
+    res.json({ token });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error", error });
+  }
+};
+
+exports.userRegister = async (req, res) => {
+  const { email, id, pw } = req.body;
+
+  try {
+    const hashedPassword = await bcrypt.hash(pw, 10);
+    const newUser = { userID: id, userPW: hashedPassword, userEmail: email };
+
+    await DBUsers.createUser(newUser);
+    res.status(201).json({ message: "User registered successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error", error });
+  }
+};

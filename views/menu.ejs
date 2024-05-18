@@ -50,7 +50,7 @@
                   <circle cx="8" cy="8" r="8" />
                 </svg></div>
             </div>
-            <button class="enter" onclick="userLogin()">Enter</button>
+            <button type="button" class="enter" onclick="userLogin()">Enter</button>
           </div>
         </div>
       </form>
@@ -89,7 +89,7 @@
                   <circle cx="8" cy="8" r="8" />
                 </svg></div>
             </div>
-            <button class="enter" onclick="userRegister()">Enter</button>
+            <button type="button" class="enter" onclick="userRegister()">Enter</button>
           </div>
         </div>
       </form>
@@ -107,35 +107,3 @@
     </div>
   </div>
 </menu>
-<script>
-  function userLogin() {
-    const form = document.forms['loginForm'];
-    async function userLogin() {
-      try {
-        const res = await axios({
-          method: 'post',
-          url: '/login',
-          data: {
-            id: form.id.value,
-            pw: form.pw.value,
-          }
-        })
-        if(res.data.isLogin) {
-          localStorage.setItem('login', res.data.token);
-          document.location.href = '/';
-        }
-        else {
-          alert(res.data.msg);
-          form.reset();
-        }
-      }
-      catch(err) {
-        console.log(err)
-      }
-    }
-  }
-
-  function userRegister() {
-    
-  }
-</script>
