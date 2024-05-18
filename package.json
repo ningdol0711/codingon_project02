@@ -13,13 +13,10 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
-    "bootstrap": "^5.3.3",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.9.7",
-    "nodemon": "^3.1.0",
-    "three": "^0.164.1",
-    "three-stl-loader": "^1.0.6"
+    "nodemon": "^3.1.0"
   }
 }
