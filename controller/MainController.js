@@ -23,7 +23,10 @@ exports.circuit = (req, res) => {
     const data = JSON.parse(dataString);
     const circuitName = data.circuit;
     res.render("circuit", { title: "Circuit", circuitName: circuitName });
-  } else {
-    res.status(400).send("Bad Request");
   }
 };
+
+exports.login = (req, res) => {
+  const userData = req.query.data;
+
+}

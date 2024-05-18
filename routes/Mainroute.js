@@ -6,4 +6,6 @@ router.get('/', controller.main);
 router.get('/circuits', controller.circuits);
 router.get('/circuit', controller.circuit)
 
+router.post('/login', controller.login);
+
 module.exports = router;
