@@ -7,12 +7,17 @@
   <%-include("menu.ejs") %>
   <main>
     <section class="team-banner-container">
-      <a href="#team_id">
-        <div class="team-banner">
-          <div class="team-name">Red Bull Racing</div>
-          <img src="/img/Team/Redbull_team_img.jpg" alt="Redbull_team_img" class="team-img">
-        </div>
-      </a>
+      <% teams.forEach(team => { %>
+        <a href="/team&TeamID?<%= team.TeamID %>">
+          <div class="team-banner" 
+             style="
+               --default-hover-color: var(--<%= team.TeamName.replace(/\s+/g, '-') %>-main);
+             ">
+            <div class="team-name"><%= team.TeamName %></div>
+            <img src="/img/Team/<%= team.TeamName.replace(/\s+/g, '-') %>-team-img.jpg" alt="<%= team.TeamName %>_team_img" class="team-img">
+          </div>
+        </a>
+      <% }); %>
     </section>
   </main>
 </body>

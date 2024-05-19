@@ -70,3 +70,9 @@ exports.userRegister = async (req, res) => {
     res.status(500).json({ message: "Server error", error });
   }
 };
+
+exports.teams = async (req, res) => {
+  DBdata.getTeams((result) => {
+    res.render('teams', {title: "Teams", teams: result});
+  });
+}

@@ -6,16 +6,27 @@
 :root {
   --f1-main-red: #FF1801;
   --f1-main-darkgray: #2b2b2b;
-  --RedBull-red: #E30118;
-  --RedBull-yellow: #FDD900;
-  --RedBull-gray: #C0BFBF;
-  --AMG-silver: #C8CCCE;
-  --AMG-darkgray: #565F64;
-  --AMG-green: #00A19B;
-  --Ferrari-yellow: #FFF200;
-  --Ferrari-green: #00A551;
-  --Ferrari-red: #EF1A2D;
-  --McLaren-orange: #FF8000;
+  --Red-Bull-Racing-main: #E30118;
+  --Mercedes-main: #C8CCCE;
+  --Ferrari-main: #EF1A2D;
+  --McLaren-main: #FF8000;
+  --Alpine-main: #02192B;
+  --AlphaTauri-main: #20394C;
+  --Aston-Martin-main: #006F62;
+  --Williams-main: #00A0DE;
+  --Alfa-Romeo-main: #A42134;
+  --Haas-main: #E6002B;
+  
+  --Red-Bull-Racing-main: #E30118;
+  --Mercedes-main: #C8CCCE;
+  --Ferrari-main: #EF1A2D;
+  --McLaren-main: #FF8000;
+  --Alpine-main: #02192B;
+  --AlphaTauri-main: #20394C;
+  --Aston-Martin-main: #006F62;
+  --Williams-main: #00A0DE;
+  --Alfa-Romeo-main: #A42134;
+  --Haas-main: #E6002B;
 }
 
 body {
@@ -123,11 +134,16 @@ a {
 }
 
 .team-img {
-  width: 90%;
-  height: 90%;
+  width: 95%;
+  height: 550px; /* 원하는 높이로 설정 */
   padding-bottom: 2%;
+  object-fit: cover; /* 이미지 비율 유지 및 크기 조정 */
   transform: translateX(-110%);
   transition: transform 0.7s;
+}
+
+.team-banner:hover {
+  background-color: var(--default-hover-color, #FFFFFF);
 }
 
 .team-banner:hover .team-img {
@@ -138,10 +154,6 @@ a {
   transform: rotate(0deg) scale(1);
   opacity: 1;
   color: rgb(253, 217, 0);
-}
-
-.team-banner:hover {
-  background-color: rgb(227, 1, 24);
 }
 
 /* Team banner end */
