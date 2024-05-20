@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%-include('head.ejs') %>
+</head>
+
+<body>
+  <%-include("menu.ejs") %>
+    <main>
+      <section class="team-driver-banner">
+        <div class="infoCardContainer">
+          <div class="info-card">
+            <div class="info-card-content">
+              <div class="back">
+                <div class="back-content">
+                  <img src="./img/Team/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Driver-img.jpg"
+                    alt="RedBull-Team-">
+                </div>
+              </div>
+              <div class="front">
+                <div class="driver-front-content">
+                  <% teamInfo.forEach(teamInfo => { %>
+                    <div class="driver driver1">
+                      <a href="/driver-<%=teamInfo.DriverID %>">
+                        <div class="front-img">
+                          <small class="badge">
+                            <%=teamInfo.DriverName %>
+                          </small>
+                          <img
+                            src="./img/Team/<%= teamInfo.TeamName.replace(/\s+/g, '-') %>/<%=teamInfo.TeamName.replace(/\s+/g, '-')%>-Driver-<%=teamInfo.DriverName.replace(/\s+/g, '-') %>.jpg"
+                            alt="<%= teamInfo.TeamName.replace(/\s+/g, '-') %>-Team-Driver-img">
+                        </div>
+                      </a>
+                    </div>
+                    <% }); %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="team-car-banner"><%teamInfo%>team-car-banner</section>
+      <section class="team-TeamPrincipal-banner">team-TeamPrincipal-banner</section>
+    </main>
+</body>
+
+</html>

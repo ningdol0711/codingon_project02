@@ -71,8 +71,18 @@ exports.userRegister = async (req, res) => {
   }
 };
 
-exports.teams = async (req, res) => {
+exports.teams = (req, res) => {
   DBdata.getTeams((result) => {
     res.render('teams', {title: "Teams", teams: result});
   });
+}
+
+exports.team = (req, res) => {
+  const dataString = req.query.data;
+  if(dataString) {
+    const data = JSON.parse(dataString);
+    DBdata.getTeam(data, (result) => {
+      res.render('team', {title: (result[0].TeamName), teamInfo: result});
+    })
+  }
 }
