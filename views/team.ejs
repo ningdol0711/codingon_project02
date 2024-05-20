@@ -7,22 +7,23 @@
 
 <body>
   <%-include("menu.ejs") %>
-    <main>
-      <section class="team-driver-banner">
+    <main class="team-info-banner-container">
+      <section class="team-driver-banner info-banner">
         <div class="infoCardContainer">
           <div class="info-card">
             <div class="info-card-content">
               <div class="back">
                 <div class="back-content">
-                  <img src="./img/Team/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Driver-img.jpg"
+                  <img
+                    src="./img/Team/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Driver-img.jpg"
                     alt="RedBull-Team-">
                 </div>
               </div>
               <div class="front">
                 <div class="driver-front-content">
-                  <% teamInfo.forEach(teamInfo => { %>
+                  <% teamInfo.forEach(teamInfo=> { %>
                     <div class="driver driver1">
-                      <a href="/driver-<%=teamInfo.DriverID %>">
+                      <a href="/driver?data=<%=teamInfo.DriverID %>">
                         <div class="front-img">
                           <small class="badge">
                             <%=teamInfo.DriverName %>
@@ -40,8 +41,68 @@
           </div>
         </div>
       </section>
-      <section class="team-car-banner"><%teamInfo%>team-car-banner</section>
-      <section class="team-TeamPrincipal-banner">team-TeamPrincipal-banner</section>
+      <section class="team-car-banner info-banner">
+        <div class="infoCardContainer">
+          <div class="info-card">
+            <div class="info-card-content">
+              <div class="back">
+                <div class="back-content">
+                  <img src="./img/Team/RedBull-Team-Logo.jpg" alt="RedBull-Team-">
+                </div>
+              </div>
+              <div class="front">
+                <a href="#team-info-page">
+                  <div class="front-content">
+                    <small class="badge">Red Bull</small>
+                    <div class="front-img"><img src="./img/Team/RedBull-Team-Car-img.jpg" alt="RedBull-Team-Car-img">
+                    </div>
+                    <div class="description">
+                      <div class="title">
+                        <strong>Full Team Name</strong>
+                      </div>
+                      <p class="info-card-footer">
+                        Oracle Red Bull Racing
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="team-TeamPrincipal-banner info-banner">
+        <div class="infoCardContainer">
+          <div class="info-card">
+            <div class="info-card-content">
+              <div class="back">
+                <div class="back-content">
+                  <img class="team-logo-img"
+                    src="./img/Team/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Logo.jpg"
+                    alt="RedBull-Team-">
+                </div>
+              </div>
+              <div class="front">
+                <a href="#team-info-page">
+                  <div class="front-content">
+                    <small class="badge">Red Bull</small>
+                    <div class="front-img"><img src="./img/Team/RedBull-Team-Car-img.jpg" alt="RedBull-Team-Car-img">
+                    </div>
+                    <div class="description">
+                      <div class="title">
+                        <strong>Full Team Name</strong>
+                      </div>
+                      <p class="info-card-footer">
+                        Oracle Red Bull Racing
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 </body>
 
