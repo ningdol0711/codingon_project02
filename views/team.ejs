@@ -47,14 +47,14 @@
             <div class="info-card-content">
               <div class="back">
                 <div class="back-content">
-                  <img src="./img/Team/RedBull-Team-Logo.jpg" alt="RedBull-Team-">
+                  <img src="./img/Team/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Car-img1.jpg" alt="<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Car-Img">
                 </div>
               </div>
               <div class="front">
                 <a href="#team-info-page">
                   <div class="front-content">
-                    <small class="badge">Red Bull</small>
-                    <div class="front-img"><img src="./img/Team/RedBull-Team-Car-img.jpg" alt="RedBull-Team-Car-img">
+                    <small class="badge"><%= teamInfo[0].TeamName%></small>
+                    <div class="front-img"><img src="./img/Team/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Car-img2.jpg" alt="<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Car-img">
                     </div>
                     <div class="description">
                       <div class="title">
