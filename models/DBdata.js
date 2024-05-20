@@ -28,7 +28,7 @@ exports.getTeams = (cb) => {
 };
 
 exports.getTeam = (TeamID, cb) => {
-  const sql = `SELECT Drivers.DriverID, Drivers.DriverName, Drivers.TeamID, Teams.TeamName, Teams.TeamPrincipal FROM Drivers INNER JOIN Teams ON Drivers.TeamID = Teams.TeamID WHERE Teams.TeamID = ?;`
+  const sql = `SELECT Drivers.*, Teams.* FROM Drivers INNER JOIN Teams ON Drivers.TeamID = Teams.TeamID WHERE Teams.TeamID = ?;`
   const values = TeamID;
   connect.query(sql, values, (err, rows) => {
     if(err) {

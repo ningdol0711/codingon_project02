@@ -621,7 +621,7 @@ body>svg {
 }
 
 .team-logo-img {
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .info-card:hover .info-card-content {
@@ -656,12 +656,24 @@ body>svg {
 .front-img {
   position: relative;
   display: inline-block;
-  height: 100%;
+  height: 90%;
 }
 
 .front-img img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+}
+
+.principal-img {
+  height: 90%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.driver-img {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -697,7 +709,7 @@ body>svg {
 .info-card-footer {
   color: #ffffff;
   margin-top: 5px;
-  font-size: 8px;
+  font-size: 20px;
 }
 
 .driver-front-content {

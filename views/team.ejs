@@ -28,7 +28,7 @@
                           <small class="badge">
                             <%=teamInfo.DriverName %>
                           </small>
-                          <img
+                          <img class="driver-img"
                             src="./img/Team/<%= teamInfo.TeamName.replace(/\s+/g, '-') %>/<%=teamInfo.TeamName.replace(/\s+/g, '-')%>-Driver-<%=teamInfo.DriverName.replace(/\s+/g, '-') %>.jpg"
                             alt="<%= teamInfo.TeamName.replace(/\s+/g, '-') %>-Team-Driver-img">
                         </div>
@@ -54,14 +54,14 @@
                 <a href="#team-info-page">
                   <div class="front-content">
                     <small class="badge"><%= teamInfo[0].TeamName%></small>
-                    <div class="front-img"><img src="./img/Team/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Car-img2.jpg" alt="<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Car-img">
+                    <div class="front-img"><img class="principal-img" src="./img/Team/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Car-img2.jpg" alt="<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Car-img">
                     </div>
                     <div class="description">
                       <div class="title">
-                        <strong>Full Team Name</strong>
+                        <strong>Machine Name</strong>
                       </div>
                       <p class="info-card-footer">
-                        Oracle Red Bull Racing
+                        <%= teamInfo[0].MachineName%>
                       </p>
                     </div>
                   </div>
@@ -85,15 +85,15 @@
               <div class="front">
                 <a href="#team-info-page">
                   <div class="front-content">
-                    <small class="badge">Red Bull</small>
-                    <div class="front-img"><img src="./img/Team/RedBull-Team-Car-img.jpg" alt="RedBull-Team-Car-img">
+                    <small class="badge"><%= teamInfo[0].TeamName%></small>
+                    <div class="front-img"><img class="principal-img" src="./img/Team/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Principal.jpg" alt="RedBull-Team-Principal-img">
                     </div>
                     <div class="description">
                       <div class="title">
-                        <strong>Full Team Name</strong>
+                        <strong>Team Principal</strong>
                       </div>
                       <p class="info-card-footer">
-                        Oracle Red Bull Racing
+                        <%= teamInfo[0].TeamPrincipal%>
                       </p>
                     </div>
                   </div>

@@ -82,6 +82,7 @@ exports.team = (req, res) => {
   if(dataString) {
     const data = JSON.parse(dataString);
     DBdata.getTeam(data, (result) => {
+      console.log(result)
       res.render('team', {title: (result[0].TeamName), teamInfo: result});
     })
   }
