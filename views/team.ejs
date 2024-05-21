@@ -13,8 +13,8 @@
           <div class="info-card">
             <div class="info-card-content">
               <div class="back">
-                <div class="back-content">
-                  <img
+                <div class="back-content back-content-img">
+                  <img class="back-content-img"
                     src="./img/Team/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Driver-img.jpg"
                     alt="RedBull-Team-">
                 </div>
@@ -22,9 +22,9 @@
               <div class="front">
                 <div class="driver-front-content">
                   <% teamInfo.forEach(teamInfo=> { %>
-                    <div class="driver driver1">
+                    <div class="driver driver1 driver-img">
                       <a href="/driver?data=<%=teamInfo.DriverID %>">
-                        <div class="front-img">
+                        <div class="front-img driver-img">
                           <small class="badge">
                             <%=teamInfo.DriverName %>
                           </small>
@@ -46,8 +46,8 @@
           <div class="info-card">
             <div class="info-card-content">
               <div class="back">
-                <div class="back-content">
-                  <img src="./img/Team/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Car-img1.jpg" alt="<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Car-Img">
+                <div class="back-content back-content-img">
+                  <img class="back-content-img" src="./img/Team/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Car-img1.jpg" alt="<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Car-Img">
                 </div>
               </div>
               <div class="front">
@@ -76,7 +76,7 @@
           <div class="info-card">
             <div class="info-card-content">
               <div class="back">
-                <div class="back-content">
+                <div class="back-content principal-img">
                   <img class="team-logo-img"
                     src="./img/Team/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Logo.jpg"
                     alt="RedBull-Team-">
@@ -86,7 +86,7 @@
                 <a href="#team-info-page">
                   <div class="front-content">
                     <small class="badge"><%= teamInfo[0].TeamName%></small>
-                    <div class="front-img"><img class="principal-img" src="./img/Team/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Principal.jpg" alt="RedBull-Team-Principal-img">
+                    <div class="front-img"><img src="./img/Team/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>/<%= teamInfo[0].TeamName.replace(/\s+/g, '-') %>-Team-Principal.jpg" alt="RedBull-Team-Principal-img">
                     </div>
                     <div class="description">
                       <div class="title">

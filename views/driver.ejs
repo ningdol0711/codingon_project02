@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%-include('head.ejs') %>
+</head>
+<body>
+  <%-include("menu.ejs") %>
+  <main>
+    <div class="driver-modal">
+      <div class="info-container">
+        <div class="driver-img-container">
+          <img src="./img/Team/<%= driverInfo[0].TeamName.replace(/\s+/g, '-') %>/<%=driverInfo[0].DriverName.replace(/\s+/g, '')%>.jpg" alt="Maxverstappen">
+        </div>
+        <div class="driver-info-container">
+          <p class="driver-info-name">
+            <%=driverInfo[0].DriverName%>
+          </p>
+          <p class="driver-info-Team">
+            Team : <%=driverInfo[0].TeamName%>
+          </p>
+          <p class="driver-info-Podiums">
+            Podiums : <span class="num" data-count="<%=driverInfo[0].Podiums%>"></span>
+          </p>
+          <p class="driver-info-Points">
+            Points : <span class="num" data-count="<%=driverInfo[0].Points%>"></span>
+          </p>
+          <p class="driver-info-GP">
+            Grand Prix entered : <span class="num" data-count="<%=driverInfo[0].GrandPrixEntered%>"></span>
+          </p>
+          <p class="driver-info-WC">
+            World Championships : <span class="num" data-count="<%=driverInfo[0].WorldChampionships%>"></span>
+          </p>
+        </div>
+      </div>
+      <div class="driver-record-container">
+        <p class="driver-record">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, tempora.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima soluta, voluptate accusantium nam fugit, et ut
+          ratione assumenda ea excepturi natus repellendus earum, animi dolor officiis atque. Reprehenderit, eum officia.
+        </p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

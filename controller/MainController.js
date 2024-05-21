@@ -87,3 +87,14 @@ exports.team = (req, res) => {
     })
   }
 }
+
+exports.driver = (req, res) => {
+  const dataString = req.query.data;
+  if(dataString) {
+    const data = JSON.parse(dataString);
+    DBdata.getDriver(data, (result) => {
+      console.log(result);
+      res.render('driver', {title: "Driver", driverInfo: result});
+    })
+  }
+}

@@ -550,17 +550,6 @@ body>svg {
   align-items: center;
 }
 
-@media screen and (max-width: 1000px) {
-  .team-info-banner-container {
-    flex-direction: column;
-    overflow-x: hidden;
-  }
-
-  .info-banner {
-    min-width: 80%;
-    margin: 10% 0;
-  }
-}
 /* Team info page end */
 
 /* Info-card-start */
@@ -665,10 +654,14 @@ body>svg {
   object-fit: cover;
 }
 
+.front-img:hover {
+  z-index: 999;
+}
+
 .principal-img {
-  height: 90%;
+  height: auto;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .driver-img {
@@ -737,6 +730,22 @@ body>svg {
   z-index: 3;
 }
 
+@media screen and (max-width: 1000px) {
+  .team-info-banner-container {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  .info-banner {
+    min-width: 80%;
+    margin: 10% 0;
+  }
+
+  .back-content img {
+    object-fit: contain;
+  }
+}
+
 /* Info-card-end */
 
 /* Driver info modal start */
@@ -767,8 +776,9 @@ body>svg {
 
 .driver-img-container {
   width: 95%;
-  max-height: 1371px;
+  max-height: 1350px;
   padding-right: 4%;
+  padding-bottom: 1%;
 }
 
 .driver-img-container img {
@@ -778,6 +788,7 @@ body>svg {
   position: relative;
   top: 0;
   left: 0;
+  margin-bottom: 1%;
 }
 
 .driver-info-container {

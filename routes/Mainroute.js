@@ -7,6 +7,7 @@ router.get('/circuits', controller.circuits);
 router.get('/circuit', controller.circuit);
 router.get('/teams', controller.teams);
 router.get('/team', controller.team);
+router.get('/driver', controller.driver);
 
 router.post('/login', controller.userLogin);
 router.post('/register', controller.userRegister);
