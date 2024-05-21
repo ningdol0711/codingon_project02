@@ -2,7 +2,16 @@ const express = require('express');
 const app = express();
 const router = require('./routes/Mainroute');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const PORT = 8000;
+const SECRET_KEY = "YHS";
+
+app.use(session({
+  secret: SECRET_KEY,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true } // Set to true if using HTTPS
+}));
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -30,6 +39,7 @@ app.use('/teams', router);
 app.use('/team&?', router);
 app.use('/driver&?', router);
 app.use('/mypage&?', router);
+app.use('/logout', router);
 
 app.listen(PORT, () => {
   console.log(`Server is running at ${PORT}...`);

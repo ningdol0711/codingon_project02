@@ -9,7 +9,7 @@ if (localStorage.getItem("token")) {
         <a class="icon-link" href="/"><i class="bi bi-house-door"></i></a>
       </li>
       <li class="tooltip-btn btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="My page">
-        <a class="icon-link" href="/mypage?data=${localStorage.getItem("token")}"><i class="bi bi-person"></i></a>
+        <a class="icon-link" href="/mypage"><i class="bi bi-person"></i></a>
       </li>
       <li class="tooltip-btn btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Teams">
         <a class="icon-link" href="/teams"><i class="bi bi-people"></i></a>
@@ -24,7 +24,7 @@ if (localStorage.getItem("token")) {
         <a class="icon-link" href="/social"><i class="bi bi-chat-left-dots"></i></a>
       </li>
       <li class="logout-btn btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Logout">
-        <a class="icon-link"><i class="bi bi-door-open"></i></a>
+        <a class="icon-link" href="/logout"><i class="bi bi-door-open"></i></a>
       </li>
     </ul>
   </div>
@@ -137,12 +137,4 @@ if (localStorage.getItem("token")) {
     </div>
   </div>
   `;
-}
-
-if(document.querySelector('.logout-btn')) {
-  const logoutBtn = document.querySelector('.logout-btn');
-  logoutBtn.addEventListener('click', () => {
-    localStorage.removeItem('token');
-    location.reload();
-  })
 }
