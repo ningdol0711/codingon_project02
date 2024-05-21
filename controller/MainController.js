@@ -98,3 +98,7 @@ exports.driver = (req, res) => {
     })
   }
 }
+
+exports.mypage = (req, res) => {
+  res.render('mypage', {title: "Mypage"});
+}

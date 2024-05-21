@@ -29,6 +29,7 @@ app.use('/api', router);
 app.use('/teams', router);
 app.use('/team&?', router);
 app.use('/driver&?', router);
+app.use('/mypage&?', router);
 
 app.listen(PORT, () => {
   console.log(`Server is running at ${PORT}...`);
