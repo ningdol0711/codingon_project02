@@ -45,7 +45,7 @@ exports.userLogin = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { userId: user.userNUM, userEmail: user.userEmail },
+      { userId: user.userNUM, userPW: user.userPW },
       SECRET_KEY,
       { expiresIn: "1h" }
     );
@@ -60,16 +60,23 @@ exports.userRegister = async (req, res) => {
   const { email, id, pw } = req.body;
 
   try {
-    const hashedPassword = await bcrypt.hash(pw, 10);
+    const hashedPassword = await bcrypt.hash(pw, 7);
     const newUser = { userID: id, userPW: hashedPassword, userEmail: email };
-
-    await DBUsers.createUser(newUser);
-    res.status(201).json({ message: "User registered successfully" });
+    
+    const user = await DBUsers.findUserById(id);
+    
+    if (user) {
+      res.status(409).json({ message: "This ID is already taken" });
+    } else {
+      await DBUsers.createUser(newUser);
+      res.status(201).json({ message: "User registered successfully" });
+    }
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error", error });
   }
 };
+
 
 exports.teams = (req, res) => {
   DBdata.getTeams((result) => {
@@ -100,5 +107,10 @@ exports.driver = (req, res) => {
 }
 
 exports.mypage = (req, res) => {
-  res.render('mypage', {title: "Mypage"});
+  const dataString = req.query.data;
+  if(dataString) {
+    console.log(dataString);
+    const userInfo = DBUsers.findUserByhash(dataString);
+    res.render('mypage', {title: "Mypage"});
+  }
 }

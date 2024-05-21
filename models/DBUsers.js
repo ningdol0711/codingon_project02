@@ -34,3 +34,19 @@ exports.createUser = async (user) => {
         if (connection) connection.release();
     }
 };
+
+exports.findUserByhash = async (hash) => {
+    let connection;
+    try {
+        connection = await pool.getConnection();
+        const rows = await connection.query("SELECT * FROM Users WHERE userPW = ?", [hash]);
+        console.log(rows)
+        return rows;
+    }
+    catch (error) {
+        console.log(error);
+    }
+    finally {
+        if(connection) connection.release();
+    }
+}
