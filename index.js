@@ -1,4 +1,7 @@
 const express = require('express');
+const socket = require('socket.io');
+const http = require('http');
+const fs = require('fs');
 const app = express();
 const router = require('./routes/Mainroute');
 const bodyParser = require('body-parser');
@@ -28,6 +31,38 @@ app.use('/circuit', router);
 app.use('/api', router);
 app.use('/teams', router);
 app.use('/team&?', router);
+
+const server = http.createServer(app);
+const io = socket(server);
+
+app.get('/social', (req, res) => {
+  fs.readFile('./views/social', (err, data) => {
+    if(err) {
+      res.send('Error');
+    }
+    else {
+      res.writeHead(200, {'Content-Type': 'text/html'});
+      res.write(data);
+      res.end();
+    }
+  })
+})
+
+io.sockets.on('connection', (socket) => {
+  socket.on('newUser', (name) => {
+    socket.name = name;
+    io.sockets.emit('update', {type: 'connect', name: 'server', message: name + ' has been connected'});
+  })
+
+  socket.on('message', (data) => {
+    data.name = socket.name;
+    socket.broadcast.emit('update', data);
+  })
+
+  socket.on('disconnect', () => {
+    socket.broadcast.emit('update', {type: 'disconnect', name: 'SERVER', message: socket.name + ' has been disconnected'});
+  })
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running at ${PORT}...`);
