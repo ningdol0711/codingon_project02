@@ -85,7 +85,7 @@ a {
 
 .menu-btn {
   position: fixed;
-  top: 10%;
+  top: 1%;
   right: 0;
   margin: 0.5%;
   padding: 0.5%;
@@ -550,17 +550,6 @@ body>svg {
   align-items: center;
 }
 
-@media screen and (max-width: 1000px) {
-  .team-info-banner-container {
-    flex-direction: column;
-    overflow-x: hidden;
-  }
-
-  .info-banner {
-    min-width: 80%;
-    margin: 10% 0;
-  }
-}
 /* Team info page end */
 
 /* Info-card-start */
@@ -621,7 +610,7 @@ body>svg {
 }
 
 .team-logo-img {
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .info-card:hover .info-card-content {
@@ -656,12 +645,28 @@ body>svg {
 .front-img {
   position: relative;
   display: inline-block;
-  height: 100%;
+  height: 90%;
 }
 
 .front-img img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+}
+
+.front-img:hover {
+  z-index: 999;
+}
+
+.principal-img {
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+}
+
+.driver-img {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -697,7 +702,7 @@ body>svg {
 .info-card-footer {
   color: #ffffff;
   margin-top: 5px;
-  font-size: 8px;
+  font-size: 20px;
 }
 
 .driver-front-content {
@@ -723,6 +728,22 @@ body>svg {
 .driver small {
   position: absolute;
   z-index: 3;
+}
+
+@media screen and (max-width: 1000px) {
+  .team-info-banner-container {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  .info-banner {
+    min-width: 80%;
+    margin: 10% 0;
+  }
+
+  .back-content img {
+    object-fit: contain;
+  }
 }
 
 /* Info-card-end */
@@ -755,8 +776,9 @@ body>svg {
 
 .driver-img-container {
   width: 95%;
-  max-height: 1371px;
+  max-height: 1350px;
   padding-right: 4%;
+  padding-bottom: 1%;
 }
 
 .driver-img-container img {
@@ -766,6 +788,7 @@ body>svg {
   position: relative;
   top: 0;
   left: 0;
+  margin-bottom: 1%;
 }
 
 .driver-info-container {
