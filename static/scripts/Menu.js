@@ -24,7 +24,7 @@ if (localStorage.getItem("token")) {
         <a class="icon-link" href="/social"><i class="bi bi-chat-left-dots"></i></a>
       </li>
       <li class="logout-btn btn" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Logout">
-        <a class="icon-link" href="/logout"><i class="bi bi-door-open"></i></a>
+        <button class="icon-link logout-btn" onclick="userLogout()"><i class="bi bi-door-open"></i></button>
       </li>
     </ul>
   </div>

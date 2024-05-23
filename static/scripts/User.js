@@ -42,3 +42,18 @@ async function userRegister() {
     }
   }
 }
+
+async function userLogout() {
+  try {
+    const response = await axios.post("http://127.0.0.1:8000/api/logout");
+    localStorage.removeItem("token");
+    alert("Logout successful");
+    location.reload();
+  } catch (error) {
+    if (error.response) {
+      alert(error.response.data.message);
+    } else {
+      console.error("Error:", error);
+    }
+  }
+}

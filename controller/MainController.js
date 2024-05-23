@@ -82,7 +82,6 @@ exports.userLogout = async (req, res) => {
     res.clearCookie('userID'); // Clear the session cookie
     res.json({ message: 'Logout successful' });
   });
-  location.href = "/";
 };
 
 exports.teams = (req, res) => {

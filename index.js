@@ -1,11 +1,11 @@
 const express = require('express');
 const socket = require('socket.io');
+const session = require('express-session');
 const http = require('http');
 const fs = require('fs');
 const app = express();
 const router = require('./routes/Mainroute');
 const bodyParser = require('body-parser');
-const session = require('express-session');
 const PORT = 8000;
 const SECRET_KEY = "YHS";
 
@@ -42,13 +42,12 @@ app.use('/teams', router);
 app.use('/team&?', router);
 app.use('/driver&?', router);
 app.use('/mypage&?', router);
-app.use('/logout', router);
 
 const server = http.createServer(app);
 const io = socket(server);
 
 app.get('/social', (req, res) => {
-  fs.readFile('./views/social', (err, data) => {
+  fs.readFile('./views/social.html', (err, data) => {
     if(err) {
       res.send('Error');
     }
