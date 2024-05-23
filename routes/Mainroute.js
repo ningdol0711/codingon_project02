@@ -1,17 +1,18 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const controller = require('../controller/MainController');
+const controller = require("../controller/MainController");
 
-router.get('/', controller.main);
-router.get('/circuits', controller.circuits);
-router.get('/circuit', controller.circuit);
-router.get('/teams', controller.teams);
-router.get('/team', controller.team);
-router.get('/driver', controller.driver);
-router.get('/mypage', controller.mypage);
-router.get('/social', controller.social);
+router.get("/", controller.main);
+router.get("/circuits", controller.circuits);
+router.get("/circuit", controller.circuit);
+router.get("/teams", controller.teams);
+router.get("/team", controller.team);
+router.get("/driver", controller.driver);
+router.get("/mypage", controller.mypage);
+router.get("/social", controller.social);
 
-router.post('/login', controller.userLogin);
-router.post('/register', controller.userRegister);
-router.post('/logout', controller.userLogout);
+router.post("/login", controller.userLogin);
+router.post("/register", controller.userRegister);
+router.post("/logout", controller.userLogout);
+
 module.exports = router;

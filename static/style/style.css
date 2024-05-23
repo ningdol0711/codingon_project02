@@ -1078,5 +1078,54 @@ section.card {
 /* shop page footer end */
 
 /* Social page start */
+.social-chat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#social-main {
+  width: 60%;
+  height: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#chat {
+  padding: 1%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#chat div {
+  width: 80%;
+}
+
+.connect, .disconnect{
+  text-align: center;
+  font-size: small;
+  color: gray;
+}
+
+.me, .other {
+  border-radius: 10px;
+  padding: 0 2%;
+}
+
+.me {
+  text-align: right;
+  background-color: var(--Aston-Martin-main);
+}
+
+.other {
+  text-align: left;
+  background-color: var(--AlphaTauri-main);
+}
 
 /* Social page end */

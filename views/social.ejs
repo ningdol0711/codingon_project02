@@ -1,51 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO" crossorigin="anonymous"></script>
+  <script defer src="/scripts/Social.js"></script>
   <%-include("head.ejs") %>
 </head>
+
 <body>
   <%-include("menu.ejs") %>
-  <h1>Chat</h1>
 
-  <ul></ul>
-
-  <form action="" id="chat" name="chat">
-    Name: <input type="text" name="name" id="name">
-    Comment: <input type="text" name="message" id="message"> <br>
-    <button type="submit">Submit</button>
-  </form>
-
-  <script>
-    const socket = new WebSocket('ws://localhost:8000');
-    const chatForm = document.forms['chat'];
-    const ul = document.querySelector('ul');
-
-    socket.addEventListener('open', (ev) => {
-      console.log(ev);
-    })
-
-    socket.addEventListener('close', (ev) => {
-      console.log(ev);
-    })
-
-    socket.addEventListener('error', (err) => {
-      console.log(err);
-    })
-
-    socket.addEventListener('message', (event) => {
-      console.log(event);
-      socket.send(`${event}`);
-    })
-
-    chatForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const msg = chatForm.message.value;
-      const name = chatForm.name.value;
-      const data = {msg: msg, name: name};
-
-      socket.send(JSON.stringify(data));
-      chatForm.reset();
-    })
-  </script>
+    <div class="social-chat">
+      <div id="social-main">
+        <div id="chat">
+          <!-- Chat message -->
+        </div>
+        <input type="text" name="test" id="test" placeholder="Insert message">
+        <button onclick="send()">Submit</button>
+      </div>
+    </div>
 </body>
+
 </html>

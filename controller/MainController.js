@@ -131,5 +131,5 @@ exports.mypage = (req, res) => {
 };
 
 exports.social = (req, res) => {
-  res.render('social', {title: "Social"})
+  res.render("social", { title: "Social" });
 };

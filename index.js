@@ -1,11 +1,16 @@
 const express = require("express");
 const session = require("express-session");
-const ws = require('ws');
+const http = require("http");
+const fs = require("fs");
+const socket = require("socket.io");
 const app = express();
 const router = require("./routes/Mainroute");
 const bodyParser = require("body-parser");
-const PORT = 8000;
+const PORT = process.env.PORT || "8000";
 const SECRET_KEY = "YHS";
+
+const server = http.createServer(app);
+const io = socket(server);
 
 app.use(
   session({
@@ -37,32 +42,47 @@ app.use("/teams", router);
 app.use("/team&?", router);
 app.use("/driver&?", router);
 app.use("/mypage&?", router);
-app.use("/social", router);
+
+app.get("/social", (req, res) => {
+  fs.readFile("./views/social.ejs", (err, data) => {
+    if (err) {
+      res.send("Error");
+    } else {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write(data);
+      res.end();
+    }
+  });
+});
+
+io.on("connection", (socket) => {
+  socket.on("newUser", (name) => {
+    socket.name = name;
+    io.sockets.emit("update", {
+      type: "connect",
+      name: "SERVER",
+      message: `${name} has join chatroom`,
+    });
+  });
+
+  socket.on("message", (data) => {
+    data.name = socket.name;
+    socket.broadcast.emit("update", data);
+  });
+
+  socket.on("disconnect", () => {
+    socket.broadcast.emit("update", {
+      type: "disconnect",
+      name: "SERVER",
+      message: `${socket.name} has left chatroom`,
+    });
+  });
+});
 
 app.get("*", (req, res) => {
   res.status(404).send("cannot find page");
 });
 
-const server = app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server is running at ${PORT}...`);
-});
-
-const wsServer = new ws.Server({ server: server });
-const sockets = [];
-
-wsServer.on("connection", (socket) => {
-  console.log("client connected");
-  sockets.push(socket);
-  socket.on("message", (message) => {
-    console.log(message);
-    socket.send(message);
-  });
-
-  socket.on("listen", (err) => {
-    console.log(err);
-  });
-
-  socket.on("close", () => {
-    console.log("close connection");
-  });
 });
