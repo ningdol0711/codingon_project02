@@ -9,9 +9,9 @@ router.get('/teams', controller.teams);
 router.get('/team', controller.team);
 router.get('/driver', controller.driver);
 router.get('/mypage', controller.mypage);
+router.get('/social', controller.social);
 
 router.post('/login', controller.userLogin);
 router.post('/register', controller.userRegister);
-router.get('/user', controller.mypage);
 router.post('/logout', controller.userLogout);
 module.exports = router;

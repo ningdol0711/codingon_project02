@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const cookieParser = require('cookie-parser');
 const DBUsers = require("../models/DBUsers");
 const SECRET_KEY = "YHS";
 const DBdata = require("../models/DBdata");
@@ -41,14 +40,19 @@ exports.userLogin = async (req, res) => {
     if (!isMatch) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
-  
+
     const token = jwt.sign(
       { userId: result[0].userNUM, userPW: result[0].userPW },
       SECRET_KEY,
       { expiresIn: "1h" }
     );
-    req.session.userID = result[0].userID;
-    res.json({ token });
+    req.session.userID = result[0].userNUM;
+    req.session.save((err) => {
+      if (err) {
+        return res.status(500).json({ message: "Session save failed" });
+      }
+      res.json({ token });
+    });
   });
 };
 
@@ -58,9 +62,9 @@ exports.userRegister = async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(pw, 7);
     const newUser = { userID: id, userPW: hashedPassword, userEmail: email };
-    
+
     const user = DBUsers.findUserById(id);
-    
+
     if (user) {
       res.status(409).json({ message: "This ID is already taken" });
     } else {
@@ -74,54 +78,58 @@ exports.userRegister = async (req, res) => {
 };
 
 exports.userLogout = async (req, res) => {
-  req.session.destroy(err => {
+  req.session.destroy((err) => {
     if (err) {
-      return res.status(500).json({ message: 'Logout failed' });
+      return res.status(500).json({ message: "Logout failed" });
     }
 
-    res.clearCookie('userID'); // Clear the session cookie
-    res.json({ message: 'Logout successful' });
+    res.clearCookie("userID"); // Clear the session cookie
+    res.json({ message: "Logout successful" });
   });
 };
 
 exports.teams = (req, res) => {
   DBdata.getTeams((result) => {
-    res.render('teams', {title: "Teams", teams: result});
+    res.render("teams", { title: "Teams", teams: result });
   });
-}
+};
 
 exports.team = (req, res) => {
   const dataString = req.query.data;
-  if(dataString) {
+  if (dataString) {
     const data = JSON.parse(dataString);
     DBdata.getTeam(data, (result) => {
-      console.log(result)
-      res.render('team', {title: (result[0].TeamName), teamInfo: result});
-    })
+      console.log(result);
+      res.render("team", { title: result[0].TeamName, teamInfo: result });
+    });
   }
-}
+};
 
 exports.driver = (req, res) => {
   const dataString = req.query.data;
-  if(dataString) {
+  if (dataString) {
     const data = JSON.parse(dataString);
     DBdata.getDriver(data, (result) => {
-      res.render('driver', {title: "Driver", driverInfo: result});
-    })
+      res.render("driver", { title: "Driver", driverInfo: result });
+    });
   }
-}
+};
 
 exports.mypage = (req, res) => {
   if (!req.session.userID) {
-    return res.status(401).json({ message: 'Not authenticated' });
+    return res.status(401).json({ message: "Not authenticated" });
   }
 
-  DBUsers.findUserById(req.session.userID, (err, user) => {
+  DBUsers.findUserById(localStorage.getItem("token"), (err, user) => {
     if (err) {
-      console.error('Database query error', err);
-      return res.status(500).json({ message: 'Internal server error' });
+      console.error("Database query error", err);
+      return res.status(500).json({ message: "Internal server error" });
     }
 
     res.json(user);
   });
-}
+};
+
+exports.social = (req, res) => {
+  res.render('social', {title: "Social"})
+};

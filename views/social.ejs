@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%-include("head.ejs") %>
+</head>
+<body>
+  <%-include("menu.ejs") %>
+  <h1>Chat</h1>
+
+  <ul></ul>
+
+  <form action="" id="chat" name="chat">
+    Name: <input type="text" name="name" id="name">
+    Comment: <input type="text" name="message" id="message"> <br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const socket = new WebSocket('ws://localhost:8000');
+    const chatForm = document.forms['chat'];
+    const ul = document.querySelector('ul');
+
+    socket.addEventListener('open', (ev) => {
+      console.log(ev);
+    })
+
+    socket.addEventListener('close', (ev) => {
+      console.log(ev);
+    })
+
+    socket.addEventListener('error', (err) => {
+      console.log(err);
+    })
+
+    socket.addEventListener('message', (event) => {
+      console.log(event);
+      socket.send(`${event}`);
+    })
+
+    chatForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const msg = chatForm.message.value;
+      const name = chatForm.name.value;
+      const data = {msg: msg, name: name};
+
+      socket.send(JSON.stringify(data));
+      chatForm.reset();
+    })
+  </script>
+</body>
+</html>
