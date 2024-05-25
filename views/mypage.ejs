@@ -2,116 +2,116 @@
 <html lang="en">
 
 <head>
+  <script defer src="/scripts/mypage.js"></script>
   <%- include('head.ejs') %>
 </head>
 
-<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+<body>
   <div class="menu">
     <%- include('menu.ejs') %>
   </div>
-  <nav class="sidebar-nav"></nav>
-  <section class="info-section">
-    <form class="row g-3 needs-validation" novalidate="">
-      <div class="col-md-4 position-relative">
-        <label for="validationTooltip01" class="form-label">First name</label>
-        <input type="text" class="form-control" id="validationTooltip01" value="Mark" required="">
-        <div class="valid-tooltip">
-          Looks good!
-        </div>
-      </div>
-      <div class="col-md-4 position-relative">
-        <label for="validationTooltip02" class="form-label">Last name</label>
-        <input type="text" class="form-control" id="validationTooltip02" value="Otto" required="">
-        <div class="valid-tooltip">
-          Looks good!
-        </div>
-      </div>
-      <div class="col-md-8 position-relative">
-        <label for="validationTooltipUsername" class="form-label">Username</label>
-        <div class="input-group has-validation">
-          <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-          <input type="text" class="form-control" id="validationTooltipUsername"
-            aria-describedby="validationTooltipUsernamePrepend" required="">
-          <div class="invalid-tooltip">
-            Please choose a unique and valid username.
+  <main class="mypage-main">
+    <nav class="sidebar-nav">
+      <ul class="sidebar-ul">
+        <li class="sidebar-li"><button class="li-btn">
+          <span>Mypage</span>
+        </button></li>
+        <li class="sidebar-li"><button class="li-btn">
+          <span>History</span>
+        </button></li>
+        <li class="sidebar-li"><button class="li-btn">
+          <span>Subscripe</span>
+        </button></li>
+      </ul>
+    </nav>
+    <section class="info-section p-3 m-0 border-0 bd-example m-0 border-0">
+      <form class="row g-3 needs-validation" novalidate="" action="/updateUser" method="post">
+        <div class="col-md-6 position-relative">
+          <label for="userName" class="form-label">Username</label>
+          <div class="input-group has-validation">
+            <input type="text" class="form-control" id="userName"
+              aria-describedby="validationTooltipUsernamePrepend" required="" placeholder="<%=userInfo.userName%>" name="userName">
           </div>
         </div>
-      </div>
-      <div class="col-md-6 position-relative">
-        <label for="validationTooltipUsername" class="form-label">Passsword</label>
-        <div class="input-group has-validation">
-          <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-          <input type="text" class="form-control" id="validationTooltipUsername"
-            aria-describedby="validationTooltipUsernamePrepend" required="">
-          <div class="invalid-tooltip">
-            Password need over 7words.
+        <div class="col-md-6 position-relative">
+          <label for="userID" class="form-label">User ID</label>
+          <div class="input-group has-validation">
+            <input type="text" class="form-control" id="userID"
+              aria-describedby="validationTooltipUsernamePrepend" required="" value="<%=userInfo.userID%>" name="userID">
+           </div>
+        </div>
+        <div class="col-md-12 position-relative">
+          <label for="userEmail" class="form-label">User Email</label>
+          <div class="input-group has-validation">
+            <input type="text" class="form-control" id="userEmail"
+              aria-describedby="validationTooltipUsernamePrepend" required="" value="<%=userInfo.userEmail%>" name="userEmail">
+           </div>
+        </div>
+        <div class="col-md-6 position-relative">
+          <label for="userPW" class="form-label">Passsword</label>
+          <div class="input-group has-validation">
+            <input type="text" class="form-control" id="userPW"
+              aria-describedby="validationTooltipUsernamePrepend" placeholder="Current password" required="" name="userPW">
+            <div class="invalid-tooltip">
+              Password need over 7words.
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-6 position-relative">
-        <label for="validationTooltipUsername" class="form-label">Check password</label>
-        <div class="input-group has-validation">
-          <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-          <input type="text" class="form-control" id="validationTooltipUsername"
-            aria-describedby="validationTooltipUsernamePrepend" required="">
-          <div class="invalid-tooltip">
-            Password incorrect.
+        <div class="col-md-6 position-relative">
+          <label for="changePW" class="form-label">Change password</label>
+          <div class="input-group has-validation">
+            <input type="text" class="form-control" id="changePW"
+              aria-describedby="validationTooltipUsernamePrepend" placeholder="Password will be change to this" required="" name="changePW">
+            <div class="invalid-tooltip">
+              Password incorrect.
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3 position-relative">
-        <label for="validationTooltip04" class="form-label">Country</label>
-        <select class="form-select" id="validationTooltip04" required="">
-          <option selected="" disabled="" value="">Choose...</option>
-          <option>...</option>
-        </select>
-        <div class="invalid-tooltip">
-          Please select a valid state.
+        <div class="col-md-3 position-relative">
+          <label for="Country" class="form-label">Country</label>
+          <select class="form-select" id="Country" required="" name="Country">
+            <option selected="" disabled="" value="KR">Choose...</option>
+            <option>...</option>
+          </select>
+          <div class="invalid-tooltip">
+            Please select a valid state.
+          </div>
         </div>
-      </div>
-      <div class="col-md-3 position-relative">
-        <label for="validationTooltip03" class="form-label">City</label>
-        <input type="text" class="form-control" id="validationTooltip03" required="">
-        <div class="invalid-tooltip">
-          Please provide a valid city.
+        <div class="col-md-3 position-relative">
+          <label for="City" class="form-label">City</label>
+          <input type="text" class="form-control" id="City" required="" name="City">
+          <div class="invalid-tooltip">
+            Please provide a valid city.
+          </div>
         </div>
-      </div>
-      <div class="col-md-3 position-relative">
-        <label for="validationTooltip04" class="form-label">State</label>
-        <select class="form-select" id="validationTooltip04" required="">
-          <option selected="" disabled="" value="">Choose...</option>
-          <option>...</option>
-        </select>
-        <div class="invalid-tooltip">
-          Please select a valid state.
+        <div class="col-md-3 position-relative">
+          <label for="State" class="form-label">State</label>
+          <select class="form-select" id="State" required="" name="State">
+            <option selected="" disabled="" value="">Choose...</option>
+            <option>...</option>
+          </select>
+          <div class="invalid-tooltip">
+            Please select a valid state.
+          </div>
         </div>
-      </div>
-      <div class="col-md-3 position-relative">
-        <label for="validationTooltip05" class="form-label">Postal/Zip Code</label>
-        <input type="text" class="form-control" id="validationTooltip05" required="">
-        <div class="invalid-tooltip">
-          Please provide a valid zip.
+        <div class="col-md-3 position-relative">
+          <label for="postalCode" class="form-label">Postal/Zip Code</label>
+          <input type="text" class="form-control" id="postalCode" required="" name="postalCode">
         </div>
-      </div>
-      <div class="col-md-3 position-relative">
-        <label for="validationTooltip05" class="form-label">Address 1</label>
-        <input type="text" class="form-control" id="validationTooltip05" required="">
-        <div class="invalid-tooltip">
-          Please provide a valid zip.
+        <div class="col-md-6 position-relative">
+          <label for="Address1" class="form-label">Address 1</label>
+          <input type="text" class="form-control" id="Address1" required="" name="Address1">
         </div>
-      </div>
-      <div class="col-md-3 position-relative">
-        <label for="validationTooltip05" class="form-label">Address 2</label>
-        <input type="text" class="form-control" id="validationTooltip05" required="">
-        <div class="invalid-tooltip">
-          Please provide a valid zip.
+        <div class="col-md-6 position-relative">
+          <label for="Address2" class="form-label">Address 2</label>
+          <input type="text" class="form-control" id="Address2" required="" name="Address2">
         </div>
-      </div>
-      <div class="col-12">
-        <button class="btn btn-primary" type="submit">Submit form</button>
-      </div>
-    </form>
-  </section>
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">Change user infomation</button>
+        </div>
+      </form>
+    </section>
+  </main>
 </body>
 
 </html>

@@ -1129,3 +1129,63 @@ section.card {
 }
 
 /* Social page end */
+
+/* mypage start */
+.mypage-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.sidebar-nav {
+  width: 18%;
+  height: 100%;
+}
+
+.sidebar-ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 2rem;
+}
+
+.sidebar-li {
+  list-style-type: none;
+}
+
+.li-btn {
+  width: 150px;
+  padding: 0;
+  border: none;
+  transform: rotate(5deg);
+  transform-origin: center;
+  text-decoration: none;
+  font-size: 15px;
+  cursor: pointer;
+  padding-bottom: 3px;
+  border-radius: 5px;
+  box-shadow: 0 2px 0 #494a4b;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-color: var(--f1-main-red);
+  margin-bottom: 1rem;
+}
+
+.li-btn span {
+  background: white;
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 2px solid #494a4b;
+}
+
+.li-btn:active {
+  transform: translateY(5px);
+  padding-bottom: 0px;
+  outline: 0;
+} 
+
+.info-section {
+  width: 78%;
+  height: 100%;
+}
+/* mypage end */
