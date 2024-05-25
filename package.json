@@ -4,8 +4,10 @@
   "description": "Notion : https://chambray-syrup-661.notion.site/Second-Project-7a81b1172c074fd598bebe4dd237b6f2?pvs=4\r Figma : https://www.figma.com/file/JMLxMLTaRij0Yk8pCUOgOW/Formula-1-projecte?type=design&node-id=0%3A1&mode=design&t=Uqzg6Rp1tuuq9l0F-1",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "devserver": "webpack-dev-server --open --progress"
   },
   "keywords": [],
   "author": "",
@@ -23,5 +25,10 @@
     "mysql2": "^3.9.7",
     "nodemon": "^3.1.0",
     "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^0.0.0",
+    "webpack": "^5.91.0",
+    "webpack-dev-server": "^5.0.4"
   }
 }
