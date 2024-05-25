@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.createElement("div");
   overlay.classList.add("modal-overlay");
   document.body.appendChild(overlay);
-  
-  if(document.querySelector('.login-btn')) {
+
+  if (document.querySelector(".login-btn")) {
     const loginBtn = document.querySelector(".login-btn");
     loginBtn.addEventListener("click", () => {
       modal.style.display = "block";

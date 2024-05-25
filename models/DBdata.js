@@ -1,4 +1,5 @@
 const mysql = require("mysql2");
+const axios = require("axios");
 
 const connect = mysql.createConnection({
   host: "localhost",
@@ -47,4 +48,14 @@ exports.getDriver = (DriverID, cb) => {
     }
     cb(rows);
   });
+};
+
+exports.schedule = async () => {
+  try {
+      const response = await axios.get('https://ergast.com/api/f1/current.json');
+      const races = response.data.MRData.RaceTable.Races;
+      return races;
+  } catch (error) {
+      throw new Error('Error fetching F1 schedule');
+  }
 };

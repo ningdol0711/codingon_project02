@@ -1,10 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%-include("head.ejs") %>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/main.min.css' rel='stylesheet' />
 </head>
+
 <body>
-  <%-include("menu.ejs") %>
-  Schedule
+  <div class="menu">
+    <%- include('menu.ejs') %>
+  </div>
+  <h2>F1 Schedule</h2>
+    <section class="calendar-container">
+      <div class="calendar">
+          <%
+              const currentYear = new Date().getFullYear();
+              const currentMonth = new Date().getMonth();
+              const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+              const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+              const racesByDate = {};
+              schedule.forEach(race => {
+                  const raceDate = new Date(race.date).getDate();
+                  racesByDate[raceDate] = race;
+              });
+          %>
+          <table>
+              <thead>
+                  <tr>
+                      <th>Sun</th>
+                      <th>Mon</th>
+                      <th>Tue</th>
+                      <th>Wed</th>
+                      <th>Thu</th>
+                      <th>Fri</th>
+                      <th>Sat</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <%
+                      let day = 1;
+                      for (let i = 0; i < 6; i++) { %>
+                      <tr>
+                          <% for (let j = 0; j < 7; j++) { %>
+                              <% if (i === 0 && j < firstDayOfMonth) { %>
+                                  <td></td>
+                              <% } else if (day > daysInMonth) { %>
+                                  <td></td>
+                              <% } else { %>
+                                  <td>
+                                      <%= day %>
+                                      <% if (racesByDate[day]) { %>
+                                          <div class="race">
+                                              <%= racesByDate[day].raceName %>
+                                          </div>
+                                      <% } %>
+                                  </td>
+                                  <% day++; %>
+                              <% } %>
+                          <% } %>
+                      </tr>
+                  <% } %>
+              </tbody>
+          </table>
+      </div>
+    </section>
 </body>
+
 </html>

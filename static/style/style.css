@@ -1189,3 +1189,45 @@ section.card {
   height: 100%;
 }
 /* mypage end */
+
+/* schedule page start */
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  margin: 0;
+} 
+
+.calendar {
+  width: 100%;
+  max-width: 80%;
+  background-color: #686868;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  width: 14.28%;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: var(--f1-main-darkgray);
+}
+
+.race {
+  margin-top: 10px;
+  padding: 5px;
+  background-color: var(--f1-main-red);
+  border-radius: 4px;
+}
+/* schedule page end */

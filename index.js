@@ -7,7 +7,6 @@ const app = express();
 const router = require("./routes/Mainroute");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || "8000";
-const SECRET_KEY = "YHS";
 
 const server = http.createServer(app);
 const io = socket(server);
