@@ -21,7 +21,40 @@ exports.findUserById = (id, cb) => {
 exports.createUser = (user, cb) => {
   const sql = `INSERT INTO Users (userID, userPW, userEmail) VALUES (?, ?, ?)`;
   const { userID, userPW, userEmail } = user;
-  connect.query(sql, [userID, userPW, userEmail], (err, rows) => {
+  const values = [userID, userPW, userEmail];
+  connect.query(sql, values, (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    cb(rows);
+  });
+};
+
+exports.updateUser = (user, cb) => {
+  console.log(user);
+  const sql = `UPDATE Users SET userName = ?, Country = ?, City = ?, State = ?, postalCode = ?, Address1 = ?, Address2 = ?, WHERE userID = ?`;
+  const {
+    userName,
+    Country,
+    City,
+    State,
+    postalCode,
+    Address1,
+    Address2,
+    userID
+  } = user;
+  const values = [
+    userName,
+    Country,
+    City,
+    State,
+    postalCode,
+    Address1,
+    Address2,
+    userID
+  ];
+
+  connect.query(sql, values, (err, rows) => {
     if (err) {
       throw err;
     }

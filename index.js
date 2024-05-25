@@ -12,14 +12,15 @@ const SECRET_KEY = "YHS";
 const server = http.createServer(app);
 const io = socket(server);
 
-app.use(
-  session({
-    secret: SECRET_KEY,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { httpOnly: false },
-  })
-);
+app.use(session({
+  secret: 'YHS',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: false,
+    maxAge: 60 * 60 * 1000,
+  }
+}))
 
 app.set("view engine", "ejs");
 app.set("views", "./views");

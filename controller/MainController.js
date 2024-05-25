@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const session = require("express-session");
 const DBUsers = require("../models/DBUsers");
 const SECRET_KEY = "YHS";
 const DBdata = require("../models/DBdata");
@@ -46,10 +47,10 @@ exports.userLogin = async (req, res) => {
       SECRET_KEY,
       { expiresIn: "1h" }
     );
-    req.session.userID = result[0].userNUM;
+    req.session.userID = result[0].userID;
     req.session.save((err) => {
       if (err) {
-        return res.status(500).json({ message: "Session save failed" });
+        return res.status(500).json({ message: "Session save error" });
       }
       res.json({ token });
     });
@@ -88,6 +89,25 @@ exports.userLogout = async (req, res) => {
   });
 };
 
+exports.updateUser = (req, res) => {
+  console.log(req.body);
+  const user = {
+    userID: req.body.userID,
+    userName: req.body.userName,
+    userPW: req.body.userPW,
+    Country: req.body.Country,
+    City: req.body.City,
+    State: req.body.State,
+    postalCode: req.body.postalCode,
+    Address1: req.body.Address1,
+    Address2: req.body.Address2,
+  };
+
+  DBUsers.updateUser(user, (result) => {
+    res.redirect("/mypage");
+  });
+};
+
 exports.teams = (req, res) => {
   DBdata.getTeams((result) => {
     res.render("teams", { title: "Teams", teams: result });
@@ -120,13 +140,8 @@ exports.mypage = (req, res) => {
     return res.status(401).json({ message: "Not authenticated" });
   }
 
-  DBUsers.findUserById(localStorage.getItem("token"), (err, user) => {
-    if (err) {
-      console.error("Database query error", err);
-      return res.status(500).json({ message: "Internal server error" });
-    }
-
-    res.json(user);
+  DBUsers.findUserById(req.session.userID, async (result) => {
+    res.render("mypage", { title: "MyPage", userInfo: result[0] });
   });
 };
 
