@@ -90,7 +90,6 @@ exports.userLogout = async (req, res) => {
 };
 
 exports.updateUser = (req, res) => {
-  console.log(req.body);
   const user = {
     userID: req.body.userID,
     userName: req.body.userName,
@@ -103,9 +102,19 @@ exports.updateUser = (req, res) => {
     Address2: req.body.Address2,
   };
 
-  DBUsers.updateUser(user, (result) => {
-    res.redirect("/mypage");
-  });
+  DBUsers.findUserById(user.userID, async (result) => {
+    if(!result) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    const isMatch = await bcrypt.compare(user.userPW, result[0].userPW);
+    if(!isMatch) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+    DBUsers.updateUser(user, (result) => {
+      res.redirect("/mypage");
+    });
+  })
+
 };
 
 exports.teams = (req, res) => {
@@ -147,4 +156,13 @@ exports.mypage = (req, res) => {
 
 exports.social = (req, res) => {
   res.render("social", { title: "Social" });
+};
+
+exports.schedule = async (req, res) => {
+  try {
+      const schedule = await DBdata.schedule();
+      res.render('schedule', {title: "Schedule", schedule});
+  } catch (error) {
+      res.status(500).send('Error fetching F1 schedule');
+  }
 };

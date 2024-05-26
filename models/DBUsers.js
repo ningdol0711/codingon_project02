@@ -31,8 +31,7 @@ exports.createUser = (user, cb) => {
 };
 
 exports.updateUser = (user, cb) => {
-  console.log(user);
-  const sql = `UPDATE Users SET userName = ?, Country = ?, City = ?, State = ?, postalCode = ?, Address1 = ?, Address2 = ?, WHERE userID = ?`;
+  const sql = `UPDATE Users SET userName = ?, Country = ?, City = ?, State = ?, postalCode = ?, Address1 = ?, Address2 = ? WHERE userID = ?`;
   const {
     userName,
     Country,
