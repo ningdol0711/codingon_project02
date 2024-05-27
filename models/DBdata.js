@@ -1,5 +1,5 @@
 const mysql = require("mysql2");
-const axios = require("axios");
+import axios from 'axios';
 
 const connect = mysql.createConnection({
   host: "localhost",

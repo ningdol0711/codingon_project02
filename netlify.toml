@@ -1,0 +1,8 @@
+[build]
+  publish = "dist"
+  command = "parcel build index.js"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
