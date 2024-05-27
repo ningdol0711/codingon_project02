@@ -1,41 +1,27 @@
 {
   "name": "codingon_project02",
   "version": "1.0.0",
-  "description": "",
+  "description": "Notion : https://chambray-syrup-661.notion.site/Second-Project-7a81b1172c074fd598bebe4dd237b6f2?pvs=4\r Figma : https://www.figma.com/file/JMLxMLTaRij0Yk8pCUOgOW/Formula-1-projecte?type=design&node-id=0%3A1&mode=design&t=Uqzg6Rp1tuuq9l0F-1",
+  "main": "index.js",
   "scripts": {
-    "build": "parcel build index.js",
-    "start": "parcel index.js"
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.1628.0",
     "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
+    "fullcalendar": "^6.1.13",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.9.7",
     "nodemon": "^3.1.0",
     "socket.io": "^4.7.5"
-  },
-  "devDependencies": {
-    "assert": "^2.1.0",
-    "browserify-zlib": "^0.2.0",
-    "buffer": "^6.0.3",
-    "crypto-browserify": "^3.12.0",
-    "events": "^3.3.0",
-    "os-browserify": "^0.3.0",
-    "path-browserify": "^1.0.1",
-    "process": "^0.11.10",
-    "querystring-es3": "^0.2.1",
-    "stream-browserify": "^3.0.0",
-    "stream-http": "^3.2.0",
-    "timers-browserify": "^2.0.12",
-    "url": "^0.11.3",
-    "util": "^0.12.5",
-    "vm-browserify": "^1.1.2"
   }
 }
