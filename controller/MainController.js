@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const axios = require("axios");
 const DBUsers = require("../models/DBUsers");
 const SECRET_KEY = "YHS";
 const DBdata = require("../models/DBdata");
@@ -101,6 +100,7 @@ exports.updateUser = (req, res) => {
     Address1: req.body.Address1,
     Address2: req.body.Address2,
   };
+  console.log(user);
 
   DBUsers.findUserById(user.userID, async (result) => {
     if(!result) {
@@ -128,7 +128,6 @@ exports.team = (req, res) => {
   if (dataString) {
     const data = JSON.parse(dataString);
     DBdata.getTeam(data, (result) => {
-      console.log(result);
       res.render("team", { title: result[0].TeamName, teamInfo: result });
     });
   }
