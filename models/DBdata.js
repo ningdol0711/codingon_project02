@@ -40,7 +40,7 @@ exports.getTeam = (TeamID, cb) => {
 };
 
 exports.getDriver = (DriverID, cb) => {
-  const sql = `SELECT Drivers.*, Teams.TeamName FROM Drivers INNER JOIN Teams ON Drivers.TeamID = Teams.TeamID WHERE Drivers.DriverID = ?;`;
+  const sql = `SELECT Drivers.DriverName, Drivers.Nationality, Drivers.TeamID, TIMESTAMPDIFF(YEAR, Birthdate, CURDATE()) AS Age, Drivers.Podiums, Drivers.Points, Drivers.GrandPrixEntered, Drivers.WorldChampionships, Teams.TeamName FROM Drivers INNER JOIN Teams ON Drivers.TeamID = Teams.TeamID WHERE Drivers.DriverID = ?;`;
   const values = [DriverID];
   connect.query(sql, values, (err, rows) => {
     if (err) {
@@ -52,7 +52,7 @@ exports.getDriver = (DriverID, cb) => {
 
 exports.schedule = async () => {
   try {
-      const response = await axios.get('https://ergast.com/api/f1/current.json');
+      const response = await axios.get('https://ergast.com/api/f1/2024.json');
       const races = response.data.MRData.RaceTable.Races;
       return races;
   } catch (error) {
