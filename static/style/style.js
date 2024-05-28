@@ -1,12 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Menu start
   if (document.querySelector(".menu-icon-box")) {
-    const tooltipTriggerList = document.querySelectorAll(
-      '[data-bs-toggle="tooltip"]'
-    );
-    const tooltipList = [...tooltipTriggerList].map(
-      (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
-    );
     document
       .querySelector(".menu-icon-box")
       .addEventListener("click", function () {
